@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jj Mcdal Nabong | Full-Stack Developer</title>
+    <meta name="description" content="Portfolio of Jj Mcdal Nabong, a Computer Science graduate and full-stack developer. Projects, experience, and contact.">
+    <meta property="og:title" content="Jj Mcdal Nabong | Full-Stack Developer">
+    <meta property="og:description" content="Full-stack developer building web systems from database and API to polished UI.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Set theme before paint to avoid a flash
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+        })();
+    </script>
+</head>
+<body>
+
+    <nav class="nav" aria-label="Main">
+        <a href="#home" class="nav-logo">jj.</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#stack">Stack</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="switch" id="theme-btn" aria-label="Toggle dark mode">
+            <span class="track"><span class="thumb"></span></span>
+            <span id="theme-label">Dark Mode</span>
+        </button>
+        <button class="kbd-btn" id="palette-btn" aria-label="Open command palette"><span class="kbd">Ctrl K</span></button>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="wrap">
+                <div class="hero-title">
+                    <span class="iam">I am</span>
+                    <span class="name">jjmcdal</span>
+                </div>
+                <p>Full-stack developer building web and mobile systems, from database and API to polished UI.</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn solid">View projects</a>
+                    <a href="mailto:jjmcdalnabong2001@gmail.com?subject=CV%20request" class="btn">Request CV</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <section class="marquee-sec" aria-label="Built for">
+            <p class="marquee-label">Built for</p>
+            <div class="marquee">
+                <div class="marquee-track" id="marquee"></div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="wrap about">
+                <div class="avatar">
+                    <!-- Put your photo at assets/me.jpg. Until then, the initials show. -->
+                    <img src="assets/me.jpg" alt="Jj Mcdal Nabong" onerror="this.remove()">
+                    <span aria-hidden="true">JM</span>
+                </div>
+                <div>
+                    <p class="eyebrow">About</p>
+                    <h2>Hi, I'm Jj Mcdal Nabong</h2>
+                    <p>I'm a Computer Science graduate from the University of Caloocan City. I build web systems end to end: the database, the API, and the interface people actually use.</p>
+                    <p>My thesis, the Regulatory Compliance Verification System, was handed over to the Bureau of Animal Industry. During my OJT at the Schools Division Office of Caloocan City, I built an inventory system that tracks over 1,000 digital assets across 80+ public schools.</p>
+                    <p>I'm looking for a Full-Stack Engineer role in Metro Manila where I can keep shipping and learning fast.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <div class="wrap">
+                <div class="sec-head">
+                    <p class="eyebrow">Experience</p>
+                    <h2 class="sec-title">Where I've worked</h2>
+                </div>
+                <div class="exp-grid">
+                    <div>
+                        <p class="col-label">Work</p>
+                        <article class="entry">
+                            <div class="entry-icon" aria-hidden="true">UCC</div>
+                            <div>
+                                <p class="entry-meta">Aug 2025 – Mar 2026 · Caloocan City</p>
+                                <h3>Research Developer</h3>
+                                <p class="org">Thesis: Regulatory Compliance Verification System</p>
+                                <ul>
+                                    <li>Built a Web3-enabled compliance platform that was handed over to the Bureau of Animal Industry.</li>
+                                    <li>Set up GitHub Actions CI/CD to deploy to Vercel, Railway, Heroku, and Firebase.</li>
+                                    <li>Won Thesis of the Year, Best Technical Documentation, and Best Research Developer.</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="entry">
+                            <div class="entry-icon" aria-hidden="true">SDO</div>
+                            <div>
+                                <p class="entry-meta">May – Jul 2025 · Caloocan City</p>
+                                <h3>OJT Developer</h3>
+                                <p class="org">Schools Division Office of Caloocan City</p>
+                                <ul>
+                                    <li>Built an inventory management system with React and Node.js for 1,000+ digital assets across 80+ public schools.</li>
+                                    <li>Optimized PostgreSQL queries, making data retrieval 40% faster.</li>
+                                    <li>Added automated reporting and audit logs.</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    <div>
+                        <p class="col-label">Education</p>
+                        <article class="entry">
+                            <div class="entry-icon" aria-hidden="true">UCC</div>
+                            <div>
+                                <p class="entry-meta">Class of 2026</p>
+                                <h3>University of Caloocan City</h3>
+                                <p class="org">BS Computer Science</p>
+                            </div>
+                        </article>
+                        <p class="col-label" style="margin-top:2.5rem">Certifications</p>
+                        <ul class="chips" id="certs"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stack -->
+        <section id="stack">
+            <div class="wrap">
+                <div class="sec-head">
+                    <p class="eyebrow">Tech stack</p>
+                    <h2 class="sec-title">Tools I build with</h2>
+                </div>
+                <div class="filters" id="stack-filters" role="tablist"></div>
+                <div class="stack-grid" id="stack-grid"></div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="wrap">
+                <div class="sec-head">
+                    <p class="eyebrow">Projects</p>
+                    <h2 class="sec-title">My Projects</h2>
+                </div>
+                <div class="filters" id="proj-filters"></div>
+                <div class="proj-grid" id="proj-grid"></div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="wrap">
+                <div class="sec-head">
+                    <p class="eyebrow">Contact</p>
+                    <h2 class="sec-title">Get in touch</h2>
+                    <p class="sec-sub">Hiring, or have a project in mind? Reach me here.</p>
+                </div>
+                <div class="contact-list" id="contact-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project detail view -->
+    <div id="detail" aria-live="polite">
+        <div class="wrap" id="detail-content"></div>
+    </div>
+
+    <footer>
+        <div class="wrap foot">
+            <div class="foot-left"><b>jj.</b> <span>&copy; 2026 Jj Mcdal Nabong</span></div>
+            <div class="foot-icons" id="foot-icons"></div>
+        </div>
+    </footer>
+
+    <!-- Command palette -->
+    <div class="palette-bg" id="palette-bg">
+        <div class="palette" role="dialog" aria-modal="true" aria-label="Command palette">
+            <header>
+                <h2>Command palette</h2>
+                <p>Navigate the site or run a quick action</p>
+            </header>
+            <input id="palette-input" type="text" placeholder="Type a command or search…" autocomplete="off">
+            <ul id="palette-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
