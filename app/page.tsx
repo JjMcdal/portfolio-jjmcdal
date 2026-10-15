@@ -50,9 +50,8 @@ export default function Home() {
             <div className="avatar"><span aria-hidden="true">JM</span></div>
               <div>
                <h2>Hi, I&apos;m Jj Mcdal Nabong</h2>
-               <p>I&apos;m a Computer Science graduate from the University of Caloocan City. I build web systems end to end: the database, the API, and the interface people actually use.</p>
-               <p>My thesis, the Regulatory Compliance Verification System, was handed over to the Bureau of Animal Industry. During my OJT at the Schools Division Office of Caloocan City, I built an inventory system that tracks over 1,000 digital assets across 80+ public schools.</p>
-               <p>I&apos;m looking for a Full-Stack Engineer role in Metro Manila where I can keep shipping and learning fast.</p>
+                <p>I&apos;m a Computer Science graduate from the University of Caloocan City. I build web systems end to end: the database, the API, and the interface people actually use. My thesis, the Regulatory Compliance Verification System, was handed over to the Bureau of Animal Industry.</p>
+                <p>During my OJT at the Schools Division Office of Caloocan City, I built an inventory system that tracks 1,000+ digital assets across 80+ public schools. I&apos;m now looking for a Full-Stack Engineer role in Metro Manila.</p>
                </div>
              </div>
             </div>
