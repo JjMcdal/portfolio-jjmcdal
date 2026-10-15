@@ -43,18 +43,20 @@ export default function Home() {
           </div></div>
         </section>
 
-        <section id="about">
-          <div className="wrap about">
+     <section id="about">
+       <div className="wrap">
+         <Label n="01">About</Label>
+           <div className="about">
             <div className="avatar"><span aria-hidden="true">JM</span></div>
-            <div>
-              <Label n="01">About</Label>
-              <h2>Hi, I&apos;m Jj Mcdal Nabong</h2>
-              <p>I&apos;m a Computer Science graduate from the University of Caloocan City. I build web systems end to end: the database, the API, and the interface people actually use.</p>
-              <p>My thesis, the Regulatory Compliance Verification System, was handed over to the Bureau of Animal Industry. During my OJT at the Schools Division Office of Caloocan City, I built an inventory system that tracks over 1,000 digital assets across 80+ public schools.</p>
-              <p>I&apos;m looking for a Full-Stack Engineer role in Metro Manila where I can keep shipping and learning fast.</p>
+              <div>
+               <h2>Hi, I&apos;m Jj Mcdal Nabong</h2>
+               <p>I&apos;m a Computer Science graduate from the University of Caloocan City. I build web systems end to end: the database, the API, and the interface people actually use.</p>
+               <p>My thesis, the Regulatory Compliance Verification System, was handed over to the Bureau of Animal Industry. During my OJT at the Schools Division Office of Caloocan City, I built an inventory system that tracks over 1,000 digital assets across 80+ public schools.</p>
+               <p>I&apos;m looking for a Full-Stack Engineer role in Metro Manila where I can keep shipping and learning fast.</p>
+               </div>
+             </div>
             </div>
-          </div>
-        </section>
+         </section>
 
         <section id="experience">
           <div className="wrap">
