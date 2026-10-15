@@ -17,15 +17,33 @@ export const CERTS = [
   "Sololearn: HTML, CSS, JavaScript",
 ];
 
-export const STACK = [
-  ["React", "react"], ["Next.js", "nextdotjs"], ["TypeScript", "typescript"],
-  ["JavaScript", "javascript"], ["Tailwind CSS", "tailwindcss"], ["Node.js", "nodedotjs"],
-  ["GraphQL", "graphql"], ["Java", "openjdk"], ["Flutter", "flutter"],
-  ["PostgreSQL", "postgresql"], ["MySQL", "mysql"], ["Redis", "redis"],
-  ["Supabase", "supabase"], ["Firebase", "firebase"], ["Vercel", "vercel"],
-  ["Ethereum", "ethereum"], ["Git", "git"], ["GitHub Actions", "githubactions"],
-  ["Postman", "postman"], ["Jira", "jira"],
-] as const;
+export type StackItem = { name: string; slug: string; cat: string };
+
+export const STACK: StackItem[] = [
+  { name: "React", slug: "react", cat: "Frontend" },
+  { name: "Next.js", slug: "nextdotjs", cat: "Frontend" },
+  { name: "TypeScript", slug: "typescript", cat: "Frontend" },
+  { name: "JavaScript", slug: "javascript", cat: "Frontend" },
+  { name: "Tailwind CSS", slug: "tailwindcss", cat: "Frontend" },
+  { name: "Node.js", slug: "nodedotjs", cat: "Backend" },
+  { name: "GraphQL", slug: "graphql", cat: "Backend" },
+  { name: "Java", slug: "openjdk", cat: "Backend" },
+  { name: "Bash", slug: "gnubash", cat: "Backend" },
+  { name: "Flutter", slug: "flutter", cat: "Mobile" },
+  { name: "PostgreSQL", slug: "postgresql", cat: "Database & Cloud" },
+  { name: "MySQL", slug: "mysql", cat: "Database & Cloud" },
+  { name: "Redis", slug: "redis", cat: "Database & Cloud" },
+  { name: "Supabase", slug: "supabase", cat: "Database & Cloud" },
+  { name: "Firebase", slug: "firebase", cat: "Database & Cloud" },
+  { name: "Vercel", slug: "vercel", cat: "Database & Cloud" },
+  { name: "Ethereum", slug: "ethereum", cat: "Web3" },
+  { name: "Git", slug: "git", cat: "Tools" },
+  { name: "GitHub Actions", slug: "githubactions", cat: "Tools" },
+  { name: "Postman", slug: "postman", cat: "Tools" },
+  { name: "Jira", slug: "jira", cat: "Tools" },
+];
+
+export const STACK_CATS = ["All", "Frontend", "Backend", "Mobile", "Database & Cloud", "Web3", "Tools"];
 
 export type Project = {
   id: string; title: string; subtitle: string; short: string; period: string;

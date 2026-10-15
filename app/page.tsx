@@ -1,6 +1,7 @@
+import Stack from "@/components/Stack";
 import Link from "next/link";
 import Chrome from "@/components/Chrome";
-import { BUILT_FOR, CERTS, EMAIL, GITHUB, PROJECTS, STACK } from "@/lib/data";
+import { BUILT_FOR, CERTS, EMAIL, GITHUB, PROJECTS, } from "@/lib/data";
 
 const Label = ({ n, children }: { n: string; children: string }) => (
   <p className="eyebrow">{n} - {children.toUpperCase()}</p>
@@ -103,12 +104,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="stack">
-          <div className="wrap">
-            <div className="sec-head"><Label n="03">Tech stack</Label><h2 className="sec-title">Tools I build with</h2></div>
-            <div className="stack-grid">{STACK.map(([name, slug]) => <span className="tool" key={name}><Brand slug={slug} />{name}</span>)}</div>
-          </div>
-        </section>
+        <Stack />
 
         <section id="projects">
           <div className="wrap">
