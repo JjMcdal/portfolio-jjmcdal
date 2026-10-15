@@ -11,7 +11,7 @@ export default function Stack() {
     <section id="stack">
       <div className="wrap">
         <div className="sec-head">
-          <p className="eyebrow">03 - Tech stack</p>
+          <p className="eyebrow">03 - TECH STACK</p>
           <h2 className="sec-title">Tools I build with</h2>
         </div>
         <div className="filters" role="tablist">
