@@ -23,10 +23,14 @@ export default function Stack() {
         </div>
         <div className="stack-grid">
           {list.map((t) => (
-            <span key={t.name} className="tool">
-              <StackIcon slug={t.slug} />
-              {t.name}
-            </span>
+           <span
+             key={t.name}
+             className="tool"
+             style={{ "--brand": t.color } as React.CSSProperties}
+  >
+             <StackIcon slug={t.slug} />
+            {t.name}
+           </span>
           ))}
         </div>
       </div>

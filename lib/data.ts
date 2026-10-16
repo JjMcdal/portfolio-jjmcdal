@@ -17,30 +17,34 @@ export const CERTS = [
   "Sololearn: HTML, CSS, JavaScript",
 ];
 
-export type StackItem = { name: string; slug: string; cat: string };
+export type StackItem = { name: string; slug: string; cat: string; color: string };
 
+// color = brand color ng icon. "var(--text)" = sumusunod sa theme (itim sa light, puti sa dark)
 export const STACK: StackItem[] = [
-  { name: "React", slug: "react", cat: "Frontend" },
-  { name: "Next.js", slug: "nextdotjs", cat: "Frontend" },
-  { name: "TypeScript", slug: "typescript", cat: "Frontend" },
-  { name: "JavaScript", slug: "javascript", cat: "Frontend" },
-  { name: "Tailwind CSS", slug: "tailwindcss", cat: "Frontend" },
-  { name: "Node.js", slug: "nodedotjs", cat: "Backend" },
-  { name: "GraphQL", slug: "graphql", cat: "Backend" },
-  { name: "Java", slug: "openjdk", cat: "Backend" },
-  { name: "Bash", slug: "gnubash", cat: "Backend" },
-  { name: "Flutter", slug: "flutter", cat: "Mobile" },
-  { name: "PostgreSQL", slug: "postgresql", cat: "Database & Cloud" },
-  { name: "MySQL", slug: "mysql", cat: "Database & Cloud" },
-  { name: "Redis", slug: "redis", cat: "Database & Cloud" },
-  { name: "Supabase", slug: "supabase", cat: "Database & Cloud" },
-  { name: "Firebase", slug: "firebase", cat: "Database & Cloud" },
-  { name: "Vercel", slug: "vercel", cat: "Database & Cloud" },
-  { name: "Ethereum", slug: "ethereum", cat: "Web3" },
-  { name: "Git", slug: "git", cat: "Tools" },
-  { name: "GitHub Actions", slug: "githubactions", cat: "Tools" },
-  { name: "Postman", slug: "postman", cat: "Tools" },
-  { name: "Jira", slug: "jira", cat: "Tools" },
+  { name: "React", slug: "react", cat: "Frontend", color: "#61DAFB" },
+  { name: "Next.js", slug: "nextdotjs", cat: "Frontend", color: "var(--text)" },
+  { name: "TypeScript", slug: "typescript", cat: "Frontend", color: "#3178C6" },
+  { name: "JavaScript", slug: "javascript", cat: "Frontend", color: "#F7DF1E" },
+  { name: "Tailwind CSS", slug: "tailwindcss", cat: "Frontend", color: "#06B6D4" },
+  { name: "Node.js", slug: "nodedotjs", cat: "Backend", color: "#5FA04E" },
+  { name: "GraphQL", slug: "graphql", cat: "Backend", color: "#E10098" },
+  { name: "Java", slug: "openjdk", cat: "Backend", color: "#ED8B00" },
+  { name: "Bash", slug: "gnubash", cat: "Backend", color: "#4EAA25" },
+  { name: "Flutter", slug: "flutter", cat: "Mobile", color: "#02569B" },
+  { name: "PostgreSQL", slug: "postgresql", cat: "Database & Cloud", color: "#4169E1" },
+  { name: "MySQL", slug: "mysql", cat: "Database & Cloud", color: "#4479A1" },
+  { name: "Redis", slug: "redis", cat: "Database & Cloud", color: "#FF4438" },
+  { name: "Supabase", slug: "supabase", cat: "Database & Cloud", color: "#3FCF8E" },
+  { name: "Firebase", slug: "firebase", cat: "Database & Cloud", color: "#DD2C00" },
+  { name: "Vercel", slug: "vercel", cat: "Database & Cloud", color: "var(--text)" },
+  { name: "Ethereum", slug: "ethereum", cat: "Web3", color: "var(--text)" },
+  { name: "Git", slug: "git", cat: "Tools", color: "#F05032" },
+  { name: "GitHub", slug: "github", cat: "Tools", color: "var(--text)" },
+  { name: "GitHub Actions", slug: "githubactions", cat: "Tools", color: "#2088FF" },
+  { name: "Docker", slug: "docker", cat: "Tools", color: "#2496ED" },
+  { name: "n8n", slug: "n8n", cat: "Tools", color: "#EA4B71" },
+  { name: "Postman", slug: "postman", cat: "Tools", color: "#FF6C37" },
+  { name: "Jira", slug: "jira", cat: "Tools", color: "#0052CC" },
 ];
 
 export const STACK_CATS = ["All", "Frontend", "Backend", "Mobile", "Database & Cloud", "Web3", "Tools"];

@@ -151,7 +151,7 @@ function applyThemeLabel() {
 }
 function setTheme(t) {
     root.setAttribute('data-theme', t);
-    try { localStorage.setItem('theme', t); } catch (e) { /* storage unavailable */ }
+    try { localStorage.setItem('theme', t); } catch { /* storage unavailable */ }
     applyThemeLabel();
     renderStack();
     renderContact();
