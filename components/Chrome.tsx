@@ -1,10 +1,20 @@
 "use client";
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import { EMAIL, GITHUB, PROJECTS } from "@/lib/data";
 
 const SECTIONS = ["about", "experience", "stack", "projects", "contact"];
+
+// Theme state galing sa <html data-theme>, para hindi na kailangan ng setState sa effect
+const subscribeTheme = (cb: () => void) => {
+  const obs = new MutationObserver(cb);
+  obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  return () => obs.disconnect();
+};
+const getDark = () => document.documentElement.dataset.theme === "dark";
+const getServerDark = () => false;
+
 const SearchIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
 );
@@ -12,22 +22,22 @@ const SearchIcon = () => (
 export default function Chrome() {
   const router = useRouter();
   const [pill, setPill] = useState(false);
-  const [dark, setDark] = useState(false);
   const [active, setActive] = useState("");
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
   const [sel, setSel] = useState(0);
   const input = useRef<HTMLInputElement>(null);
+  const dark = useSyncExternalStore(subscribeTheme, getDark, getServerDark);
 
   const toggleTheme = useCallback(() => {
     const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem("theme", next); } catch {}
-    setDark(next === "dark");
   }, []);
 
+  const openPalette = () => { setQ(""); setSel(0); setOpen(true); };
+
   useEffect(() => {
-    setDark(document.documentElement.dataset.theme === "dark");
     const onScroll = () => {
       setPill(window.scrollY > 40);
       let cur = "";
@@ -38,7 +48,11 @@ export default function Chrome() {
       setActive(cur);
     };
     const onKey = (e: KeyboardEvent) => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); setOpen((o) => !o); }
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setQ(""); setSel(0);
+        setOpen((o) => !o);
+      }
       if (e.key === "Escape") setOpen(false);
     };
     onScroll();
@@ -47,14 +61,14 @@ export default function Chrome() {
     return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("keydown", onKey); };
   }, []);
 
-  useEffect(() => { if (open) { setQ(""); setSel(0); input.current?.focus(); } }, [open]);
+  useEffect(() => { if (open) input.current?.focus(); }, [open]);
 
   const go = (path: string) => () => router.push(path);
   const items = [
     ...SECTIONS.map((s) => ({ name: "Go to " + s[0].toUpperCase() + s.slice(1), hint: "section", run: go("/#" + s) })),
     ...PROJECTS.map((p) => ({ name: "Open " + p.title, hint: "project", run: go("/projects/" + p.id) })),
     { name: dark ? "Switch to light mode" : "Switch to dark mode", hint: "action", run: toggleTheme },
-    { name: "Send an email", hint: "action", run: () => { location.href = "mailto:" + EMAIL; } },
+    { name: "Send an email", hint: "action", run: () => { window.location.assign("mailto:" + EMAIL); } },
     { name: "Open GitHub", hint: "link", run: () => { window.open(GITHUB, "_blank", "noopener"); } },
   ].filter((c) => c.name.toLowerCase().includes(q.trim().toLowerCase()));
 
@@ -76,7 +90,7 @@ export default function Chrome() {
             <Link key={s} href={"/#" + s} className={active === s ? "active" : ""}>{s[0].toUpperCase() + s.slice(1)}</Link>
           ))}
         </div>
-        <button className="search-btn" onClick={() => setOpen(true)} aria-label="Open command palette">
+        <button className="search-btn" onClick={openPalette} aria-label="Open command palette">
           <SearchIcon /><span>Search</span><span className="kbd">Ctrl K</span>
         </button>
         <button className="switch" onClick={toggleTheme} aria-label="Toggle dark mode">
