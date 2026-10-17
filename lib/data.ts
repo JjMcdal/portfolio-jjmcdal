@@ -1,6 +1,29 @@
 export const EMAIL = "jjmcdalnabong2001@gmail.com";
 export const GITHUB = "https://github.com/JjMcdal";
 
+export const FACEBOOK = "https://www.facebook.com/jjmcdal.nabong";
+export const LINKEDIN = "https://www.linkedin.com/in/jj-mcdal-nabong-64bba7397";
+export const SITE = "https://portfolio-jjmcdal.vercel.app";
+
+// Bubukas diretso sa Gmail compose window, naka-fill na ang "To" at "Subject"
+export const GMAIL_COMPOSE =
+  `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=${encodeURIComponent("Hello from your portfolio")}`;
+
+export type ContactLink = {
+  name: string; // pang-sort lang
+  label: string; // ito ang lalabas sa page
+  href: string;
+  icon: "facebook" | "github" | "gmail" | "linkedin" | "site";
+};
+
+export const CONTACTS: ContactLink[] = ([
+  { name: "Facebook", label: "facebook.com/jjmcdal.nabong", href: FACEBOOK, icon: "facebook" },
+  { name: "GitHub", label: "github.com/JjMcdal", href: GITHUB, icon: "github" },
+  { name: "Gmail", label: EMAIL, href: GMAIL_COMPOSE, icon: "gmail" },
+  { name: "LinkedIn", label: "linkedin.com/in/jj-mcdal-nabong", href: LINKEDIN, icon: "linkedin" },
+  { name: "Portfolio", label: "portfolio-jjmcdal.vercel.app", href: SITE, icon: "site" },
+] satisfies ContactLink[]).sort((a, b) => a.name.localeCompare(b.name));
+
 export const BUILT_FOR = [
   "Bureau of Animal Industry",
   "Schools Division Office of Caloocan City",

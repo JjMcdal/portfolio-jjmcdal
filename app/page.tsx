@@ -1,7 +1,7 @@
 import Stack from "@/components/Stack";
 import Link from "next/link";
 import Chrome from "@/components/Chrome";
-import { BUILT_FOR, CERTS, EMAIL, GITHUB, PROJECTS, } from "@/lib/data";
+import { BUILT_FOR, CERTS, CONTACTS, EMAIL, PROJECTS, type ContactLink } from "@/lib/data";
 
 const Label = ({ n, children }: { n: string; children: string }) => (
   <p className="eyebrow">{n} - {children.toUpperCase()}</p>
@@ -12,6 +12,12 @@ const MailIcon = () => (
 const FolderIcon = () => (
   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
 );
+const LinkedInIcon = () => (
+  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
+);
+const GlobeIcon = () => (
+  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" /></svg>
+);
 const Arrow = () => (
   <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7M8 7h9v9" /></svg>
 );
@@ -19,6 +25,15 @@ const Brand = ({ slug }: { slug: string }) => (
   // eslint-disable-next-line @next/next/no-img-element
   <img className="bi" src={`https://cdn.simpleicons.org/${slug}/0a0a0a`} alt="" width={22} height={22} />
 );
+const ContactIcon = ({ icon }: { icon: ContactLink["icon"] }) => {
+  switch (icon) {
+    case "facebook": return <Brand slug="facebook" />;
+    case "github": return <Brand slug="github" />;
+    case "gmail": return <Brand slug="gmail" />;
+    case "linkedin": return <LinkedInIcon />;
+    case "site": return <GlobeIcon />;
+  }
+};
 
 export default function Home() {
   const marquee = [...BUILT_FOR, ...BUILT_FOR, ...BUILT_FOR, ...BUILT_FOR];
@@ -44,19 +59,19 @@ export default function Home() {
           </div></div>
         </section>
 
-     <section id="about">
-       <div className="wrap">
-         <Label n="01">About</Label>
-           <div className="about">
-            <div className="avatar"><span aria-hidden="true">JM</span></div>
+        <section id="about">
+          <div className="wrap">
+            <Label n="01">About</Label>
+            <div className="about">
+              <div className="avatar"><span aria-hidden="true">JM</span></div>
               <div>
-               <h2>Hi, I&apos;m Jj Mcdal Nabong</h2>
+                <h2>Hi, I&apos;m Jj Mcdal Nabong</h2>
                 <p>I&apos;m a Computer Science graduate from the University of Caloocan City. I build web systems end to end: the database, the API, and the interface people actually use. My thesis, the Regulatory Compliance Verification System, was handed over to the Bureau of Animal Industry.</p>
                 <p>During my OJT at the Schools Division Office of Caloocan City, I built an inventory system that tracks 1,000+ digital assets across 80+ public schools. I&apos;m now looking for a Full-Stack Engineer role in Metro Manila.</p>
-               </div>
-             </div>
+              </div>
             </div>
-         </section>
+          </div>
+        </section>
 
         <section id="experience">
           <div className="wrap">
@@ -128,8 +143,13 @@ export default function Home() {
           <div className="wrap">
             <div className="sec-head"><Label n="05">Contact</Label><h2 className="sec-title">Get in touch</h2><p className="sec-sub">Hiring, or have a project in mind? Reach me here.</p></div>
             <div className="contact-list">
-              <a className="contact-row" href={`mailto:${EMAIL}`}><MailIcon /><span className="val">{EMAIL}</span><Arrow /></a>
-              <a className="contact-row" href={GITHUB} target="_blank" rel="noopener"><Brand slug="github" /><span className="val">github.com/JjMcdal</span><Arrow /></a>
+              {CONTACTS.map((c) => (
+                <a className="contact-row" key={c.name} href={c.href} target="_blank" rel="noopener">
+                  <ContactIcon icon={c.icon} />
+                  <span className="val">{c.label}</span>
+                  <Arrow />
+                </a>
+              ))}
             </div>
           </div>
         </section>
