@@ -21,13 +21,15 @@ section{padding:0}
 /* Negative margin cancels the nav's flex gap so there is no empty space while hidden */
 .nav-logo.hide{max-width:0;opacity:0;margin-right:-1.75rem;pointer-events:none}
 .nav-links{display:flex;gap:1.5rem;margin-right:auto}
-.nav-links a{font-size:.95rem;font-weight:500;color:var(--muted);transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--text)}
+/* Each link reserves its bold width (via ::after) so the active state doesn't shift neighbors */
+.nav-links a{display:inline-flex;flex-direction:column;align-items:center;font-size:.85rem;font-weight:500;color:var(--text);transition:opacity .2s}
+.nav-links a::after{content:attr(data-label);font-weight:700;height:0;visibility:hidden;overflow:hidden}
+.nav-links a:hover{opacity:.6}
 .nav-links a.active{font-weight:700}
-.search-btn{display:flex;align-items:center;gap:.5rem;background:none;border:none;font-size:.95rem;font-weight:500;color:var(--muted)}
-.search-btn:hover{color:var(--text)}
-.kbd{font-family:var(--mono);font-size:.75rem;border:1px solid var(--border);border-radius:6px;padding:.2rem .5rem;background:var(--card);white-space:nowrap}
-.switch{display:flex;align-items:center;gap:.6rem;background:none;border:none;font-weight:600;font-size:.95rem}
+.search-btn{display:flex;align-items:center;background:none;border:none;color:var(--muted)}
+.search-icon{display:none}
+.kbd{font-family:var(--mono);font-size:.65rem;border:1px solid var(--border);border-radius:6px;padding:.2rem .5rem;background:var(--card);white-space:nowrap}
+.switch{display:flex;align-items:center;gap:.6rem;background:none;border:none;font-weight:600;font-size:.85rem}
 .track{width:46px;height:26px;border-radius:999px;background:var(--chip);border:1px solid var(--border);position:relative}
 .thumb{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--solid);transition:transform .2s}
 [data-theme=dark] .thumb{transform:translateX(20px)}
@@ -150,8 +152,9 @@ footer{padding:2rem 0}
 .empty{text-align:center;color:var(--muted);padding:1rem}
 
 @media(max-width:860px){
-  .nav-links,.search-btn span,.switch-label{display:none}
-  /* margin-right:auto pushes Search and the theme toggle to the right, even while the logo is hidden */
+  .nav-links,.kbd,.switch-label{display:none}
+  .search-icon{display:flex}
+  /* margin-right:auto pushes the search icon and the theme toggle to the right, even while the logo is hidden */
   .nav{gap:1rem}.nav-logo,.nav-logo.hide{margin-right:auto}
   .about,.exp-grid,.detail-grid{grid-template-columns:1fr;gap:2.5rem}
   .avatar{width:240px;height:240px;margin:0 auto}.avatar span{font-size:4.5rem}

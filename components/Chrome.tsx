@@ -137,14 +137,24 @@ export default function Chrome() {
           jj.
         </Link>
         <div className="nav-links">
-          {SECTIONS.map((s) => (
-            <Link key={s} href={"/#" + s} className={active === s ? "active" : ""} aria-current={active === s ? "location" : undefined}>
-              {s[0].toUpperCase() + s.slice(1)}
-            </Link>
-          ))}
+          {SECTIONS.map((s) => {
+            const label = s[0].toUpperCase() + s.slice(1);
+            return (
+              <Link
+                key={s}
+                href={"/#" + s}
+                data-label={label} // read by the CSS ::after that reserves the bold width
+                className={active === s ? "active" : ""}
+                aria-current={active === s ? "location" : undefined}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </div>
         <button className="search-btn" onClick={openPalette} aria-label="Open command palette">
-          <SearchIcon /><span>Search</span><span className="kbd">{mac ? "⌘ K" : "Ctrl K"}</span>
+          <span className="search-icon"><SearchIcon /></span>
+          <span className="kbd">{mac ? "⌘ K" : "Ctrl K"}</span>
         </button>
         <button className="switch" onClick={toggleTheme} aria-label="Toggle dark mode">
           <span className="track"><span className="thumb" /></span>
