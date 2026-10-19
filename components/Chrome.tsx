@@ -2,9 +2,11 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { EMAIL, GITHUB, PROJECTS } from "@/lib/data";
 
 const SECTIONS = ["about", "experience", "stack", "projects", "contact"];
+type CommandGroup = "Navigate" | "Actions";
+type CommandIcon = "home" | "about" | "experience" | "stack" | "projects" | "contact" | "theme";
+type Command = { name: string; group: CommandGroup; icon: CommandIcon; run: () => void };
 
 // Theme state is read from <html data-theme>, so no setState is needed inside an effect
 const subscribeTheme = (cb: () => void) => {
@@ -23,6 +25,19 @@ const getServerMac = () => false;
 const SearchIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
 );
+
+const CommandIcon = ({ name }: { name: CommandIcon }) => {
+  const paths = {
+    home: <><path d="m3 10 9-7 9 7" /><path d="M5 9v11h14V9" /><path d="M9 20v-6h6v6" /></>,
+    about: <><circle cx="12" cy="8" r="3" /><path d="M5 21a7 7 0 0 1 14 0" /></>,
+    experience: <><circle cx="12" cy="8" r="3" /><path d="m9 13-1 8 4-2 4 2-1-8" /></>,
+    stack: <><path d="M4 6h16v12H4z" /><path d="M8 10h8M8 14h5" /></>,
+    projects: <><path d="M3 7h6l2 2h10v9H3z" /><path d="M3 7V5h6l2 2" /></>,
+    contact: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>,
+    theme: <><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></>,
+  };
+  return <svg className="command-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
+};
 
 export default function Chrome() {
   const router = useRouter();
@@ -46,6 +61,11 @@ export default function Chrome() {
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem("theme", next); } catch {}
   }, []);
+  const togglePurple = useCallback(() => {
+    const next = document.documentElement.dataset.theme === "purple" ? "light" : "purple";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("theme", next); } catch {}
+  }, []);
 
   const openPalette = () => { setQ(""); setSel(0); setOpen(true); };
 
@@ -56,6 +76,10 @@ export default function Chrome() {
       window.scrollTo({ top: 0, behavior: "smooth" });
       history.replaceState(null, "", "/"); // remove the #section from the URL
     }
+  };
+  const goHomeCommand = () => {
+    if (isHome) window.scrollTo({ top: 0, behavior: "smooth" });
+    else router.push("/");
   };
 
   useEffect(() => {
@@ -97,13 +121,17 @@ export default function Chrome() {
   }, [open]);
 
   const go = (path: string) => () => router.push(path);
-  const items = [
-    ...SECTIONS.map((s) => ({ name: "Go to " + s[0].toUpperCase() + s.slice(1), hint: "section", run: go("/#" + s) })),
-    ...PROJECTS.map((p) => ({ name: "Open " + p.title, hint: "project", run: go("/projects/" + p.id) })),
-    { name: dark ? "Switch to light mode" : "Switch to dark mode", hint: "action", run: toggleTheme },
-    { name: "Send an email", hint: "action", run: () => { window.location.assign("mailto:" + EMAIL); } },
-    { name: "Open GitHub", hint: "link", run: () => { window.open(GITHUB, "_blank", "noopener"); } },
-  ].filter((c) => c.name.toLowerCase().includes(q.trim().toLowerCase()));
+  const commands: Command[] = [
+    { name: "Home", group: "Navigate", icon: "home", run: goHomeCommand },
+    ...SECTIONS.map((s) => ({
+      name: s === "stack" ? "Tech Stack" : s[0].toUpperCase() + s.slice(1),
+      group: "Navigate" as const,
+      icon: s as CommandIcon,
+      run: go("/#" + s),
+    })),
+    { name: "Toggle Purple Mode", group: "Actions", icon: "theme", run: togglePurple },
+  ];
+  const items = commands.filter((c) => c.name.toLowerCase().includes(q.trim().toLowerCase()));
 
   const run = (i: number) => { const it = items[i]; if (it) { setOpen(false); it.run(); } };
   const onInputKey = (e: React.KeyboardEvent) => {
@@ -152,8 +180,9 @@ export default function Chrome() {
             );
           })}
         </div>
-        <button className="search-btn" onClick={openPalette} aria-label="Open command palette">
+        <button className={"search-btn" + (pill ? " scrolled" : "")} onClick={openPalette} aria-label="Open command palette">
           <span className="search-icon"><SearchIcon /></span>
+          <span className="search-label">Search</span>
           <span className="kbd">{mac ? "⌘ K" : "Ctrl K"}</span>
         </button>
         <button className="switch" onClick={toggleTheme} aria-label="Toggle dark mode">
@@ -165,12 +194,13 @@ export default function Chrome() {
       {open && (
         <div className="palette-bg" onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}>
           <div ref={dialog} onKeyDown={onDialogKey} className="palette" role="dialog" aria-modal="true" aria-label="Command palette">
-            <header><h2>Command palette</h2><p>Navigate the site or run a quick action</p></header>
-            <input ref={input} value={q} onChange={(e) => { setQ(e.target.value); setSel(0); }} onKeyDown={onInputKey} placeholder="Type a command or search…" autoComplete="off" />
+            <div className="palette-search"><SearchIcon /><input ref={input} value={q} onChange={(e) => { setQ(e.target.value); setSel(0); }} onKeyDown={onInputKey} placeholder="Type a command or search..." autoComplete="off" /></div>
             <ul>
-              {items.length ? items.map((c, i) => (
-                <li key={c.name}><button className={i === sel ? "sel" : ""} onMouseEnter={() => setSel(i)} onClick={() => run(i)}>{c.name}<small>{c.hint}</small></button></li>
-              )) : <li className="empty">No matches.</li>}
+              {items.length ? (["Navigate", "Actions"] as CommandGroup[]).map((group) => {
+                const grouped = items.filter((item) => item.group === group);
+                if (!grouped.length) return null;
+                return <li className="command-group" key={group}><p>{group}</p>{grouped.map((c) => { const i = items.indexOf(c); return <button key={c.name} className={i === sel ? "sel" : ""} onMouseEnter={() => setSel(i)} onClick={() => run(i)}><CommandIcon name={c.icon} /><span>{c.name}</span></button>; })}</li>;
+              }) : <li className="empty">No matches.</li>}
             </ul>
           </div>
         </div>
