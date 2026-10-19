@@ -74,7 +74,10 @@ export default function Home() {
           <div className="wrap">
             <Label n="01">About</Label>
             <div className="about">
-              <div className="avatar"><span aria-hidden="true">JM</span></div>
+              <div className="avatar">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/pogi.jpg" alt="Jj Mcdal Nabong" width={220} height={220} />
+              </div>
               <div>
                 <h2>Hi, I&apos;m Jj Mcdal Nabong</h2>
                 <p>I&apos;m a Computer Science graduate from the University of Caloocan City. I build web systems end to end: the database, the API, and the interface people actually use. My thesis, the Regulatory Compliance Verification System, was handed over to the Bureau of Animal Industry.</p>
