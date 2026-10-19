@@ -1,7 +1,7 @@
 import Stack from "@/components/Stack";
 import Link from "next/link";
 import Chrome from "@/components/Chrome";
-import { BUILT_FOR, CERTS, CONTACTS, PROJECTS, type ContactLink } from "@/lib/data";
+import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, LINKEDIN, PROJECTS, type ContactLink } from "@/lib/data";
 
 const Label = ({ n, children }: { n: string; children: string }) => (
   <p className="eyebrow">{n} - {children.toUpperCase()}</p>
@@ -34,6 +34,13 @@ const ContactIcon = ({ icon }: { icon: ContactLink["icon"] }) => {
     case "site": return <GlobeIcon />;
   }
 };
+
+const FOOTER_LINKS = [
+  { label: "Email", href: `mailto:${EMAIL}`, icon: "gmail" as const },
+  { label: "Facebook", href: FACEBOOK, icon: "facebook" as const },
+  { label: "GitHub", href: GITHUB, icon: "github" as const },
+  { label: "LinkedIn", href: LINKEDIN, icon: "linkedin" as const },
+];
 
 export default function Home() {
   const marquee = [...BUILT_FOR, ...BUILT_FOR, ...BUILT_FOR, ...BUILT_FOR];
@@ -158,7 +165,25 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer><div className="wrap foot"><div className="foot-left"><b>jj.</b> <span>&copy; 2026 Jj Mcdal Nabong</span></div></div></footer>
+      <footer>
+        <div className="wrap foot">
+          <div className="foot-left"><b>jj.</b> <span>&copy; 2026 Jj Mcdal Nabong</span></div>
+          <nav className="footer-links" aria-label="Social and contact links">
+            {FOOTER_LINKS.map((link) => (
+              <a
+                className="footer-link"
+                key={link.label}
+                href={link.href}
+                target={link.icon === "gmail" ? undefined : "_blank"}
+                rel={link.icon === "gmail" ? undefined : "noopener noreferrer"}
+                aria-label={link.label}
+              >
+                <ContactIcon icon={link.icon} />
+              </a>
+            ))}
+          </nav>
+        </div>
+      </footer>
     </>
   );
 }
