@@ -1,7 +1,7 @@
 import Stack from "@/components/Stack";
 import Link from "next/link";
 import Chrome from "@/components/Chrome";
-import { BUILT_FOR, CERTS, CONTACTS, EMAIL, PROJECTS, type ContactLink } from "@/lib/data";
+import { BUILT_FOR, CERTS, CONTACTS, PROJECTS, type ContactLink } from "@/lib/data";
 
 const Label = ({ n, children }: { n: string; children: string }) => (
   <p className="eyebrow">{n} - {children.toUpperCase()}</p>
@@ -48,7 +48,7 @@ export default function Home() {
             <p>Full-stack developer building web and mobile systems, from database and API to polished UI.</p>
             <div className="hero-actions">
               <Link href="/#projects" className="btn solid"><FolderIcon />View projects</Link>
-              <a href={`mailto:${EMAIL}?subject=CV%20request`} className="btn"><MailIcon />Request CV</a>
+              <a href="/jjmcdal-cv.pdf" target="_blank" rel="noopener noreferrer" className="btn"><MailIcon />Open CV</a>
             </div>
           </div>
         </section>
