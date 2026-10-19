@@ -14,23 +14,29 @@ export default function Stack() {
           <p className="eyebrow">03 - TECH STACK</p>
           <h2 className="sec-title">Tools I build with</h2>
         </div>
-        <div className="filters" role="tablist">
+        {/* These are toggle buttons, not tabs, so aria-pressed is the correct attribute */}
+        <div className="filters" role="group" aria-label="Filter tech stack">
           {STACK_CATS.map((c) => (
-            <button key={c} className={"filter" + (c === cat ? " on" : "")} onClick={() => setCat(c)}>
+            <button
+              key={c}
+              className={"filter" + (c === cat ? " on" : "")}
+              aria-pressed={c === cat}
+              onClick={() => setCat(c)}
+            >
               {c}
             </button>
           ))}
         </div>
         <div className="stack-grid">
           {list.map((t) => (
-           <span
-             key={t.name}
-             className="tool"
-             style={{ "--brand": t.color } as React.CSSProperties}
-  >
-             <StackIcon slug={t.slug} />
-            {t.name}
-           </span>
+            <span
+              key={t.name}
+              className="tool"
+              style={{ "--brand": t.color } as React.CSSProperties}
+            >
+              <StackIcon slug={t.slug} />
+              {t.name}
+            </span>
           ))}
         </div>
       </div>

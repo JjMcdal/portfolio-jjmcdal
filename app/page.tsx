@@ -43,7 +43,8 @@ export default function Home() {
       <main>
         <section className="hero" id="home">
           <div className="wrap">
-            <div className="hero-title"><span className="iam">I am</span><span className="name">jjmcdal</span></div>
+            {/* h1 so the page has a main heading for SEO and screen readers */}
+            <h1 className="hero-title"><span className="iam">I am</span><span className="name">jjmcdal</span></h1>
             <p>Full-stack developer building web and mobile systems, from database and API to polished UI.</p>
             <div className="hero-actions">
               <Link href="/#projects" className="btn solid"><FolderIcon />View projects</Link>
@@ -55,7 +56,10 @@ export default function Home() {
         <section className="marquee-sec" aria-label="Built for">
           <p className="marquee-label">Built for</p>
           <div className="marquee"><div className="marquee-track">
-            {[...marquee, ...marquee].map((n, i) => <span className="marquee-item" key={i}>{n}</span>)}
+            {/* Only the first set is read by screen readers; the rest are visual duplicates for the loop */}
+            {[...marquee, ...marquee].map((n, i) => (
+              <span className="marquee-item" key={i} aria-hidden={i >= BUILT_FOR.length ? true : undefined}>{n}</span>
+            ))}
           </div></div>
         </section>
 
@@ -144,7 +148,7 @@ export default function Home() {
             <div className="sec-head"><Label n="05">Contact</Label><h2 className="sec-title">Get in touch</h2><p className="sec-sub">Hiring, or have a project in mind? Reach me here.</p></div>
             <div className="contact-list">
               {CONTACTS.map((c) => (
-                <a className="contact-row" key={c.name} href={c.href} target="_blank" rel="noopener">
+                <a className="contact-row" key={c.name} href={c.href} target="_blank" rel="noopener noreferrer">
                   <ContactIcon icon={c.icon} />
                   <span className="val">{c.label}</span>
                   <Arrow />

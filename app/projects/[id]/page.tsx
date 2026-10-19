@@ -33,12 +33,17 @@ export default async function ProjectPage({ params }: Props) {
             <ul>{p.highlights.map((h) => <li key={h}>{h}</li>)}</ul>
             {p.note && <p className="note">{p.note}</p>}
           </div>
-          <dl className="side-box">
-            <div><dt>Role</dt><dd>{p.role}</dd></div>
-            <div><dt>Period</dt><dd>{p.period}</dd></div>
-            <div><dt>Built with</dt><dd className="chips">{p.tech.map((t) => <span className="chip" key={t}>{t}</span>)}</dd></div>
-            {p.links.map((l) => <a className="btn solid" key={l.href} href={l.href} target="_blank" rel="noopener">{l.label}</a>)}
-          </dl>
+          {/* Links sit outside the dl because an <a> is not valid as a direct child of <dl> */}
+          <aside className="side">
+            <dl className="side-box">
+              <div><dt>Role</dt><dd>{p.role}</dd></div>
+              <div><dt>Period</dt><dd>{p.period}</dd></div>
+              <div><dt>Built with</dt><dd className="chips">{p.tech.map((t) => <span className="chip" key={t}>{t}</span>)}</dd></div>
+            </dl>
+            {p.links.map((l) => (
+              <a className="btn solid" key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
+            ))}
+          </aside>
         </div>
       </div></div>
     </>
