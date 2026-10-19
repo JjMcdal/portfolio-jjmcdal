@@ -61,12 +61,6 @@ export default function Chrome() {
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem("theme", next); } catch {}
   }, []);
-  const togglePurple = useCallback(() => {
-    const next = document.documentElement.dataset.theme === "purple" ? "light" : "purple";
-    document.documentElement.dataset.theme = next;
-    try { localStorage.setItem("theme", next); } catch {}
-  }, []);
-
   const openPalette = () => { setQ(""); setSel(0); setOpen(true); };
 
   // On the home page, scroll smoothly to the top instead of navigating
@@ -75,6 +69,20 @@ export default function Chrome() {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
       history.replaceState(null, "", "/"); // remove the #section from the URL
+    }
+  };
+  const navigateToSection = (section: string) => {
+    const scrollToSection = () => {
+      const target = document.getElementById(section);
+      if (!target) return;
+      history.pushState(null, "", `/#${section}`);
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    if (isHome) scrollToSection();
+    else {
+      router.push(`/#${section}`);
+      window.setTimeout(scrollToSection, 150);
     }
   };
   const goHomeCommand = () => {
@@ -120,16 +128,15 @@ export default function Chrome() {
     };
   }, [open]);
 
-  const go = (path: string) => () => router.push(path);
   const commands: Command[] = [
     { name: "Home", group: "Navigate", icon: "home", run: goHomeCommand },
     ...SECTIONS.map((s) => ({
       name: s === "stack" ? "Tech Stack" : s[0].toUpperCase() + s.slice(1),
       group: "Navigate" as const,
       icon: s as CommandIcon,
-      run: go("/#" + s),
+      run: () => navigateToSection(s),
     })),
-    { name: "Toggle Purple Mode", group: "Actions", icon: "theme", run: togglePurple },
+    { name: "Toggle Dark Mode", group: "Actions", icon: "theme", run: toggleTheme },
   ];
   const items = commands.filter((c) => c.name.toLowerCase().includes(q.trim().toLowerCase()));
 
