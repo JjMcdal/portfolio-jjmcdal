@@ -44,6 +44,7 @@ export default function Chrome() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [pill, setPill] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
@@ -53,8 +54,8 @@ export default function Chrome() {
   const dark = useSyncExternalStore(subscribeTheme, getDark, getServerDark);
   const mac = useSyncExternalStore(subscribeNone, getMac, getServerMac);
 
-  // Show the "jj." logo once the user scrolls, or always on project pages (no hero there)
-  const showLogo = pill || !isHome;
+  // Show the "jj." logo as soon as scrolling starts, or always on project pages.
+  const showLogo = scrolled || !isHome;
 
   const toggleTheme = useCallback(() => {
     const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
@@ -92,6 +93,7 @@ export default function Chrome() {
 
   useEffect(() => {
     const onScroll = () => {
+      setScrolled(window.scrollY > 0);
       setPill(window.scrollY > 40);
       // Scroll-spy: the last section whose top passed 40% of the viewport is "active"
       let cur = "";

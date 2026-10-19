@@ -173,11 +173,18 @@ footer{padding:3.5rem 0}
 .empty{text-align:center;color:var(--muted);padding:1rem}
 
 @media(max-width:860px){
-  .nav-links,.kbd,.switch-label{display:none}
-  .search-btn.scrolled{display:none}
+  .nav{top:.75rem;width:calc(100% - 1.5rem);max-width:none;gap:.65rem;padding:.55rem .7rem;background:var(--nav-bg);backdrop-filter:blur(12px);border-color:var(--border);box-shadow:var(--shadow)}
+  .nav.pill{top:.75rem;width:calc(100% - 1.5rem);max-width:none;padding:.55rem .7rem}
+  .nav-logo{display:block;flex:none;max-width:2rem;margin:0;opacity:1;pointer-events:auto;font-size:1rem}
+  .nav-logo.hide{max-width:0;margin-right:-.65rem;opacity:0;pointer-events:none}
+  .nav-links{display:flex;flex:1;min-width:0;gap:.85rem;margin:0;overflow-x:auto;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{flex:none;font-size:.78rem;white-space:nowrap}
+  .search-btn{flex:none;order:3;padding:0}
+  .search-btn.scrolled{display:flex}
   .search-icon{display:flex}
-  /* margin-right:auto pushes the search icon and the theme toggle to the right, even while the logo is hidden */
-  .nav{gap:1rem}.nav-logo,.nav-logo.hide{margin-right:auto}
+  .search-label,.kbd,.switch-label{display:none}
+  .switch{flex:none;order:2}
   .about,.exp-grid,.detail-grid{grid-template-columns:1fr;gap:2.5rem}
   .avatar{width:200px;height:200px;margin:0 auto}.avatar span{font-size:3rem}
   .foot{align-items:flex-start;flex-direction:column;gap:1.5rem}
