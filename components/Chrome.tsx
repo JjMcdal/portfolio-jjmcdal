@@ -54,8 +54,8 @@ export default function Chrome() {
   const dark = useSyncExternalStore(subscribeTheme, getDark, getServerDark);
   const mac = useSyncExternalStore(subscribeNone, getMac, getServerMac);
 
-  // Show the "jj." logo as soon as scrolling starts, or always on project pages.
-  const showLogo = scrolled || !isHome;
+  // Keep the home hero clean; reveal the brand only after the 20px threshold.
+  const showLogo = isHome && scrolled;
 
   const toggleTheme = useCallback(() => {
     const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
@@ -93,8 +93,8 @@ export default function Chrome() {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 0);
-      setPill(window.scrollY > 40);
+      setScrolled(window.scrollY > 20);
+      setPill(window.scrollY > 20);
       // Scroll-spy: the last section whose top passed 40% of the viewport is "active"
       let cur = "";
       SECTIONS.forEach((id) => {
