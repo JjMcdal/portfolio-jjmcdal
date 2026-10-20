@@ -18,8 +18,8 @@ section{padding:0}
 [data-theme=dark] .bi{filter:invert(1)}
 
 /* Nav: full-width at top, compact pill after scroll */
-.nav{position:fixed;top:0;left:0;z-index:100;display:flex;align-items:center;gap:1.75rem;width:100%;padding:1.1rem 3rem;background:transparent;border:1px solid transparent;border-radius:0;transition:top .3s,left .3s,width .3s,padding .3s,background .3s,border-color .3s,border-radius .3s,box-shadow .3s}
-.nav.pill{top:1rem;left:50%;width:fit-content;max-width:calc(100% - 1.5rem);padding:.6rem 1.25rem;background:var(--nav-bg);backdrop-filter:blur(12px);border-color:var(--border);border-radius:999px;box-shadow:var(--shadow);transform:translateX(-50%)}
+.nav{position:fixed;top:0;left:0;z-index:100;display:flex;align-items:center;gap:1.75rem;width:100%;padding:1.1rem 3rem;background:transparent;border:1px solid transparent;border-radius:0;transform:scale(.98);transform-origin:top center;will-change:transform,top,left,width,padding,background,border-color,border-radius,box-shadow;transition:top .3s,left .3s,width .3s,padding .3s,background .3s,border-color .3s,border-radius .3s,box-shadow .3s,transform .3s ease-in-out}
+.nav.pill{top:1rem;left:50%;width:fit-content;max-width:calc(100% - 1.5rem);padding:.6rem 1.25rem;background:var(--nav-bg);backdrop-filter:blur(12px);border-color:var(--border);border-radius:999px;box-shadow:var(--shadow);transform:translateX(-50%) scale(1)}
 /* Logo: hidden at the top of the home page, fades/slides in after scroll */
 .nav-logo{font-weight:700;letter-spacing:0;font-size:1.1rem;max-width:3rem;overflow:hidden;white-space:nowrap;transition:opacity .2s ease;visibility:visible}
 .nav-logo.hide{max-width:0;margin-right:-1.75rem;opacity:0;visibility:hidden;pointer-events:none;transition:none}
@@ -193,7 +193,7 @@ footer{padding:3.5rem 0}
 
 @media(max-width:860px){
   .nav{top:0;left:0;width:100%;max-width:none;gap:.65rem;padding:.8rem 1rem;border-color:transparent;border-radius:0;box-shadow:none}
-  .nav.pill{top:.75rem;left:50%;width:calc(100% - 1.5rem);max-width:none;padding:.55rem .7rem;border-color:var(--border);border-radius:999px;box-shadow:var(--shadow)}
+  .nav.pill{top:.75rem;left:50%;width:calc(100% - 1.5rem);max-width:none;padding:.55rem .7rem;border-color:var(--border);border-radius:999px;box-shadow:var(--shadow);transform:translateX(-50%) scale(1)}
   .nav-logo{display:block;flex:none;max-width:2rem;margin:0;font-size:1rem}
   .nav-links{display:flex;flex:1;min-width:0;gap:1rem;margin:0;overflow-x:auto;scrollbar-width:none}
   .nav-links::-webkit-scrollbar{display:none}
