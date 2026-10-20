@@ -1,7 +1,7 @@
 import Stack from "@/components/Stack";
 import Link from "next/link";
 import Chrome from "@/components/Chrome";
-import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, JOURNEY, JOURNEY_LABEL, JOURNEY_PATH, LINKEDIN, PROJECTS, type ContactLink } from "@/lib/data";
+import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, JOURNEY, JOURNEY_PATH, LINKEDIN, PROJECTS, type ContactLink } from "@/lib/data";
 
 const Label = ({ n, children }: { n: string; children: string }) => (
   <p className="eyebrow">{n} - {children.toUpperCase()}</p>
@@ -88,14 +88,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Sibling of .about, not a child of it, so the avatar/text grid stays untouched */}
-            <h3 className="story-title">The entire tale <span>is presented correctly.</span></h3>
             <div className="journey">
               <div className="journey-intro">
-                <p className="journey-url">{JOURNEY_LABEL}</p>
-                <h4>My path to becoming a developer.</h4>
-                <p>From exploring Computer Science in 2022 to a thesis handed over to a government agency. Four years, told in six chapters.</p>
-                <Link href={JOURNEY_PATH} className="journey-btn">Go through the narrative <ArrowRight /></Link>
+                <Link href={JOURNEY_PATH} className="journey-url">journey.jjmcdal.com</Link>
+                <h3>How I became a developer.</h3>
+                <p>From a Computer Science student finding his footing to building systems for real people and organizations.</p>
+                <Link href={JOURNEY_PATH} className="journey-btn">Read the story <ArrowRight /></Link>
               </div>
               <ol className="journey-list">
                 {JOURNEY.map((s) => (
