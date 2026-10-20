@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { FACEBOOK } from "@/lib/data";
 
 const SECTIONS = ["about", "experience", "stack", "projects", "contact"];
 type CommandGroup = "Navigate" | "Actions";
@@ -25,6 +26,9 @@ const getServerMac = () => false;
 const SearchIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
 );
+const FacebookIcon = () => (
+  <svg className="journey-facebook-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-3.31 0-5 1.69-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.67.33-1 1-1Z" /></svg>
+);
 
 const CommandIcon = ({ name }: { name: CommandIcon }) => {
   const paths = {
@@ -39,10 +43,11 @@ const CommandIcon = ({ name }: { name: CommandIcon }) => {
   return <svg className="command-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
 };
 
-export default function Chrome() {
+export default function Chrome({ variant = "default" }: { variant?: "default" | "journey" }) {
   const router = useRouter();
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isJourney = variant === "journey";
   const [pill, setPill] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
@@ -163,18 +168,30 @@ export default function Chrome() {
 
   return (
     <>
-      <nav className={"nav" + (pill ? " pill" : "")} aria-label="Main">
-        <Link
-          href="/"
-          onClick={goHome}
-          className={"nav-logo" + (showLogo ? "" : " hide")}
-          aria-hidden={!showLogo}
-          tabIndex={showLogo ? 0 : -1}
-        >
-          jj.
-        </Link>
-        <div className="nav-links">
-          {SECTIONS.map((s) => {
+      <nav className={"nav" + (pill ? " pill" : "") + (isJourney ? " journey-nav" : "")} aria-label="Main">
+        {isJourney ? (
+          <Link href="/" className="journey-brand">Jj Mcdal Nabong</Link>
+        ) : null}
+        {!isJourney ? (
+          <Link
+            href="/"
+            onClick={goHome}
+            className={"nav-logo" + (showLogo ? "" : " hide")}
+            aria-hidden={!showLogo}
+            tabIndex={showLogo ? 0 : -1}
+          >
+            jj.
+          </Link>
+        ) : null}
+        <div className={"nav-links" + (isJourney ? " journey-nav-links" : "")}>
+          {isJourney ? (
+            <>
+              <a href="#story">Story</a>
+              <a href="#podcast">Podcast</a>
+              <a href="#lessons">Lessons</a>
+            </>
+          ) : null}
+          {!isJourney ? SECTIONS.map((s) => {
             const label = s[0].toUpperCase() + s.slice(1);
             return (
               <Link
@@ -187,13 +204,20 @@ export default function Chrome() {
                 {label}
               </Link>
             );
-          })}
+          }) : null}
         </div>
+        {isJourney ? (
+          <a className="journey-facebook" href={FACEBOOK} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <FacebookIcon />
+          </a>
+        ) : null}
+        {!isJourney ? <>
         <button className={"search-btn" + (pill ? " scrolled" : "")} onClick={openPalette} aria-label="Open command palette">
           <span className="search-icon"><SearchIcon /></span>
           <span className="search-label">Search</span>
           <span className="kbd">{mac ? "⌘ K" : "Ctrl K"}</span>
         </button>
+        </> : null}
         <button className="switch" onClick={toggleTheme} aria-label="Toggle dark mode">
           <span className="track"><span className="thumb" /></span>
           <span className="switch-label">{dark ? "Light" : "Dark"}</span>
