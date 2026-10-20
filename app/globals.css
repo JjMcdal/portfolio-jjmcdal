@@ -85,7 +85,7 @@ section{padding:0}
 .journey-url:hover{text-decoration:underline;text-underline-offset:4px}
 .journey h3{font-size:clamp(2rem,4vw,3rem);line-height:1.05;max-width:20rem;margin-bottom:1.25rem}
 .journey-intro>p:not(.journey-url){color:var(--muted);max-width:31rem;margin-bottom:2rem}
-.journey-btn{display:inline-flex;align-items:center;gap:.65rem;margin-top:auto;padding:.85rem 1.4rem;border-radius:999px;background:var(--journey-accent);color:var(--journey-on-accent);font-weight:700;transition:transform .2s,box-shadow .2s}
+.journey-btn{display:inline-flex;align-items:center;gap:.65rem;margin-top:auto;padding:.85rem 1.4rem;border-radius:999px;background:var(--journey-accent);color:var(--journey-on-accent);font-weight:700;transition:transform .2s,box-shadow .2s,background-color .2s}
 .journey-btn .icon{width:18px;height:18px}
 .journey-list{list-style:none;position:relative;z-index:1;display:grid;align-content:center}
 .journey-list::before{content:"";position:absolute;left:8px;top:1rem;bottom:1rem;width:1px;background:var(--border)}
@@ -94,8 +94,9 @@ section{padding:0}
 .journey-list li::before{content:"";grid-column:1;grid-row:1;width:8px;height:8px;margin-left:4px;border-radius:50%;background:var(--journey-accent);box-shadow:0 0 0 4px var(--journey-accent-soft);z-index:1}
 .journey-year{grid-column:2;color:var(--journey-accent);font-weight:700}
 .journey-list li>span:last-child{grid-column:3}
-[data-theme=light],:root{--journey-accent:#f1b900;--journey-accent-soft:rgba(241,185,0,.16);--journey-on-accent:#17120a}
-[data-theme=dark]{--journey-accent:#ffd34d;--journey-accent-soft:rgba(255,211,77,.16);--journey-on-accent:#17120a}
+[data-theme=light],:root{--journey-accent:#3f3f46;--journey-accent-soft:rgba(63,63,70,.14);--journey-on-accent:#fff}
+[data-theme=dark]{--journey-accent:#e4e4e7;--journey-accent-soft:rgba(228,228,231,.14);--journey-on-accent:#18181b}
+@media(hover:hover){.journey-btn:hover{background:#27272a;box-shadow:var(--shadow);transform:translateY(-1px)}[data-theme=dark] .journey-btn:hover{background:#fafafa}}
 
 /* Experience */
 .exp-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:4rem}
