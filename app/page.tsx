@@ -88,10 +88,14 @@ export default function Home() {
               </div>
             </div>
 
+            <div className="journey-heading">
+              <p className="journey-eyebrow"><span aria-hidden="true" />ABOUT ME</p>
+              <h2>The entire tale is presented correctly.</h2>
+            </div>
             <div className="journey">
               <div className="journey-intro">
                 <Link href={JOURNEY_PATH} className="journey-url">journey.jjmcdal.com</Link>
-                <h3>The entire tale is presented correctly.</h3>
+                <h3>My path to becoming a developer.</h3>
                 <p>From a Computer Science student finding his footing to building systems for real people and organizations.</p>
                 <Link href={JOURNEY_PATH} className="journey-btn">Go through the narrative. <ArrowRight /></Link>
               </div>
