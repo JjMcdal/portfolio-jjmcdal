@@ -5,13 +5,13 @@ export const FACEBOOK = "https://www.facebook.com/jjmcdal.nabong";
 export const LINKEDIN = "https://www.linkedin.com/in/jj-mcdal-nabong-64bba7397";
 export const SITE = "https://portfolio-jjmcdal.vercel.app";
 
-// Bubukas diretso sa Gmail compose window, naka-fill na ang "To" at "Subject"
+// Opens the Gmail compose window directly, with "To" and "Subject" already filled in
 export const GMAIL_COMPOSE =
   `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=${encodeURIComponent("Hello from your portfolio")}`;
 
 export type ContactLink = {
-  name: string; // pang-sort lang
-  label: string; // ito ang lalabas sa page
+  name: string; // used for sorting only
+  label: string; // the text shown on the page
   href: string;
   icon: "facebook" | "github" | "gmail" | "linkedin" | "site";
 };
@@ -42,7 +42,7 @@ export const CERTS = [
 
 export type StackItem = { name: string; slug: string; cat: string; color: string };
 
-// color = brand color ng icon. "var(--text)" = sumusunod sa theme (itim sa light, puti sa dark)
+// color = the icon's brand color. "var(--text)" follows the theme (black in light, white in dark)
 export const STACK: StackItem[] = [
   { name: "Bash", slug: "gnubash", cat: "Tools", color: "#4EAA25" },
   { name: "Dart", slug: "dart", cat: "Mobile", color: "#0175C2" },
@@ -129,3 +129,19 @@ export const PROJECTS: Project[] = [
     note: "Still being built. Progress is pushed to GitHub regularly.",
   },
 ];
+
+export type JourneyStep = { year: string; title: string; text: string };
+
+// Short title shows in the About card timeline; full text shows on /journey.
+export const JOURNEY: JourneyStep[] = [
+  { year: "2022", title: "Exploring, still figuring it out.", text: "Exploring. I was still figuring out where I fit in Computer Science." },
+  { year: "2023", title: "Struggling, but catching up.", text: "I struggled, but I kept trying to catch up." },
+  { year: "2024", title: "Started coding, still afraid.", text: "I started programming and developing. I was still afraid to try, but my group and I finished our Software Engineering project." },
+  { year: "2025", title: "Me versus me, and an OJT I finished.", text: "Programming became a must, and it was really just me versus me. I was very scared to try things during my OJT, but I finished it, and it still felt like something was missing." },
+  { year: "2025–26", title: "Thesis days: scrum, Jira, sprints.", text: "In 4th year I wasn't sure I could keep up. First semester was mostly documentation, though I kept developing. In the second semester I was programming for our thesis almost every day. We held a scrum every weekday from 9 to 10 PM, tracked tasks in Jira, and ran around 15 sprints over the whole thesis." },
+  { year: "2026", title: "Graduated, applying, still upskilling.", text: "I graduated on April 27, 2026 and started applying online everywhere. Meanwhile I kept upskilling, building projects, and practicing so I wouldn't fall behind. I want to become a full-stack developer or engineer, and a software engineer if things work out, and I keep putting in the work." },
+];
+
+// The About card links here; the label is the text shown above the card title
+export const JOURNEY_PATH = "/journey";
+export const JOURNEY_LABEL = `${SITE.replace("https://", "")}${JOURNEY_PATH}`;

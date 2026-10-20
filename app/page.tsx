@@ -1,7 +1,7 @@
 import Stack from "@/components/Stack";
 import Link from "next/link";
 import Chrome from "@/components/Chrome";
-import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, LINKEDIN, PROJECTS, type ContactLink } from "@/lib/data";
+import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, JOURNEY, JOURNEY_LABEL, JOURNEY_PATH, LINKEDIN, PROJECTS, type ContactLink } from "@/lib/data";
 
 const Label = ({ n, children }: { n: string; children: string }) => (
   <p className="eyebrow">{n} - {children.toUpperCase()}</p>
@@ -20,6 +20,9 @@ const GlobeIcon = () => (
 );
 const Arrow = () => (
   <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7M8 7h9v9" /></svg>
+);
+const ArrowRight = () => (
+  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
 );
 const Brand = ({ slug }: { slug: string }) => (
   // eslint-disable-next-line @next/next/no-img-element
@@ -83,6 +86,25 @@ export default function Home() {
                 <p>I&apos;m a Computer Science graduate from the University of Caloocan City. I build web systems end to end: the database, the API, and the interface people actually use. My thesis, the Regulatory Compliance Verification System, was handed over to the Bureau of Animal Industry.</p>
                 <p>During my OJT at the Schools Division Office of Caloocan City, I built an inventory system that tracks 1,000+ digital assets across 80+ public schools. I&apos;m now looking for a Full-Stack Engineer role in Metro Manila.</p>
               </div>
+            </div>
+
+            {/* Sibling of .about, not a child of it, so the avatar/text grid stays untouched */}
+            <h3 className="story-title">The entire tale <span>is presented correctly.</span></h3>
+            <div className="journey">
+              <div className="journey-intro">
+                <p className="journey-url">{JOURNEY_LABEL}</p>
+                <h4>My path to becoming a developer.</h4>
+                <p>From exploring Computer Science in 2022 to a thesis handed over to a government agency. Four years, told in six chapters.</p>
+                <Link href={JOURNEY_PATH} className="journey-btn">Go through the narrative <ArrowRight /></Link>
+              </div>
+              <ol className="journey-list">
+                {JOURNEY.map((s) => (
+                  <li key={s.year}>
+                    <span className="journey-year">{s.year}</span>
+                    <span>{s.title}</span>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
         </section>
