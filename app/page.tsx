@@ -1,4 +1,5 @@
 import Stack from "@/components/Stack";
+import GithubContributions from "@/components/GithubContributions";
 import Link from "next/link";
 import Chrome from "@/components/Chrome";
 import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, JOURNEY, JOURNEY_PATH, LINKEDIN, PROJECTS, type ContactLink } from "@/lib/data";
@@ -89,8 +90,8 @@ export default function Home() {
             </div>
 
             <div className="journey-heading">
-              <p className="journey-eyebrow"><span aria-hidden="true" />ABOUT ME</p>
-              <h2>The entire tale is presented correctly.</h2>
+              <p className="journey-eyebrow"><span aria-hidden="true" />TIMELINE</p>
+              <h2>The story behind the code.</h2>
             </div>
             <div className="journey">
               <div className="journey-intro">
@@ -108,6 +109,7 @@ export default function Home() {
                 ))}
               </ol>
             </div>
+            <GithubContributions />
           </div>
         </section>
 
