@@ -3,6 +3,7 @@ import GithubContributions from "@/components/GithubContributions";
 import Link from "next/link";
 import Chrome from "@/components/Chrome";
 import UccBadge from "@/components/UccBadge";
+import SdoBadge from "@/components/SdoBadge";
 import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, JOURNEY, JOURNEY_PATH, LINKEDIN, PROJECTS, type ContactLink } from "@/lib/data";
 
 const Label = ({ n, children }: { n: string; children: string }) => (
@@ -134,7 +135,7 @@ export default function Home() {
                   </div>
                 </article>
                 <article className="entry">
-                  <div className="entry-icon" aria-hidden="true">SDO</div>
+                  <SdoBadge />
                   <div>
                     <p className="entry-meta">May – Jul 2025 · Caloocan City</p>
                     <h3>OJT Developer</h3>
