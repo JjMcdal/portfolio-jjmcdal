@@ -257,10 +257,11 @@ footer{padding:3.5rem 0}
 .timeline-placeholder-item span{font-weight:700;color:var(--muted)}
 .timeline-placeholder-item p{margin-top:2rem;color:var(--muted);font-size:.9rem}
 @media(hover:hover){.journey-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow)}}
-/* Desktop: no fixed height or overflow:hidden here, otherwise the caption gets clipped */
+/* Desktop: portrait shrinks with the viewport height so the whole hero fits without scrolling */
 @media(min-width:861px){
-  .journey-hero{padding:5.8rem 0 3rem}
+  .journey-hero{padding:5.8rem 0 1rem}
   .journey-hero-grid{align-items:start}
+  .journey-portrait{width:min(18.125rem,calc((100svh - 11rem) * 3 / 4))}
 }
 
 /* Palette */
