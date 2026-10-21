@@ -241,7 +241,7 @@ footer{padding:3.5rem 0}
 .journey-hero-copy .eyebrow{margin-bottom:.75rem}
 .journey-hero h1{font-size:clamp(1.875rem,3.5vw,2.5rem);font-weight:700;line-height:1.05;letter-spacing:-.025em;max-width:16ch}
 .journey-hero .lead{margin:.75rem 0 1.25rem;max-width:35rem;font-size:1rem;color:var(--muted)}
-.journey-primary{display:inline-flex;align-items:center;gap:.7rem;padding:.8rem 1.35rem;border-radius:10px;background:var(--solid);color:var(--on-solid);font-weight:700;transition:transform .2s,box-shadow .2s}
+.journey-primary{display:inline-flex;align-items:center;gap:.7rem;padding:.8rem 1.35rem;border-radius:10px;background:var(--journey-accent);color:var(--journey-on-accent);font-weight:700;box-shadow:0 6px 20px color-mix(in srgb,var(--journey-accent) 22%,transparent);transition:transform .2s,box-shadow .2s,background-color .2s}
 .journey-primary span{font-size:1.25rem;line-height:1}
 /* Portrait: fixed 3:4 ratio (about 290px wide on desktop), caption stays visible below */
 .journey-portrait{margin:0;width:min(100%,18.125rem);justify-self:end;align-self:start}
@@ -256,10 +256,13 @@ footer{padding:3.5rem 0}
 .timeline-placeholder-item:last-child{border-right:0}
 .timeline-placeholder-item span{font-weight:700;color:var(--muted)}
 .timeline-placeholder-item p{margin-top:2rem;color:var(--muted);font-size:.9rem}
+.journey-primary:focus-visible{box-shadow:0 10px 30px color-mix(in srgb,var(--journey-accent) 45%,transparent)}
 @media(hover:hover){
-  .journey-primary:hover{background:#52525b;transform:translateY(-2px);box-shadow:var(--shadow)}
-  [data-theme=dark] .journey-primary:hover{background:#a1a1aa}
+  .journey-primary:hover{background:#27272a;box-shadow:0 10px 30px color-mix(in srgb,var(--journey-accent) 45%,transparent);transform:translateY(-1px)}
+  [data-theme=dark] .journey-primary:hover{background:#fafafa}
 }
+/* Pressed state: after the hover block so it wins */
+.journey-primary:active{transform:translateY(0) scale(.98);box-shadow:0 3px 12px color-mix(in srgb,var(--journey-accent) 35%,transparent)}
 /* Desktop: portrait shrinks with the viewport height so the whole hero fits without scrolling */
 @media(min-width:861px){
   .journey-hero{padding:5.8rem 0 1rem}
@@ -327,4 +330,4 @@ footer{padding:3.5rem 0}
   .timeline-placeholder-item,.timeline-placeholder-item:nth-child(2n){border-right:0;border-top:1px solid var(--border)}
   .timeline-placeholder-item:first-child{border-top:0}
 }
-@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}html{scroll-behavior:auto}*{transition:none!important}.journey-btn:hover,.journey-btn:active,.journey-btn:hover .icon,.journey-btn:focus-visible .icon{transform:none}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}html{scroll-behavior:auto}*{transition:none!important}.journey-btn:hover,.journey-btn:active,.journey-btn:hover .icon,.journey-btn:focus-visible .icon,.journey-primary:hover,.journey-primary:active{transform:none}}
