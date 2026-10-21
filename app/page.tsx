@@ -2,6 +2,7 @@ import Stack from "@/components/Stack";
 import GithubContributions from "@/components/GithubContributions";
 import Link from "next/link";
 import Chrome from "@/components/Chrome";
+import UccBadge from "@/components/UccBadge";
 import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, JOURNEY, JOURNEY_PATH, LINKEDIN, PROJECTS, type ContactLink } from "@/lib/data";
 
 const Label = ({ n, children }: { n: string; children: string }) => (
@@ -120,7 +121,7 @@ export default function Home() {
               <div>
                 <p className="col-label">Work</p>
                 <article className="entry">
-                  <div className="entry-icon" aria-hidden="true">UCC</div>
+                  <UccBadge />
                   <div>
                     <p className="entry-meta">Aug 2025 – Mar 2026 · Caloocan City</p>
                     <h3>Research Developer</h3>
@@ -149,7 +150,7 @@ export default function Home() {
               <div>
                 <p className="col-label">Education</p>
                 <article className="entry">
-                  <div className="entry-icon" aria-hidden="true">UCC</div>
+                  <UccBadge />
                   <div><p className="entry-meta">Class of 2026</p><h3>University of Caloocan City</h3><p className="org">BS Computer Science</p></div>
                 </article>
                 <p className="col-label" style={{ marginTop: "2.5rem" }}>Certifications</p>
