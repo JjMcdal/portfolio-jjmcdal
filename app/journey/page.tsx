@@ -21,7 +21,7 @@ export default function JourneyPage() {
             <figure className="journey-portrait">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/pogi.jpg" alt="Jj Mcdal Nabong working on a laptop" width={520} height={640} />
-              <figcaption>Jj Mcdal Nabong, developer and lifelong learner. 2026.</figcaption>
+              <figcaption>Jj Mcdal Nabong, developer and lifelong learner.</figcaption>
             </figure>
           </div>
         </section>
