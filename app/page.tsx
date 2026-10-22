@@ -100,7 +100,7 @@ export default function Home() {
                 <Link href={JOURNEY_PATH} className="journey-url">journey.jjmcdal.com</Link>
                 <h3>My path to becoming a developer.</h3>
                 <p>From a Computer Science student finding his footing to building systems for real people and organizations.</p>
-                <Link href={JOURNEY_PATH} className="journey-btn">Go through the narrative. <ArrowRight /></Link>
+                <Link href={JOURNEY_PATH} className="journey-btn">Explore my journey <ArrowRight /></Link>
               </div>
               <ol className="journey-list">
                 {JOURNEY.map((s) => (
