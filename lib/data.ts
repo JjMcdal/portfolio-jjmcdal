@@ -75,7 +75,7 @@ export const STACK_CATS = ["All", "Frontend", "Backend", "Mobile", "Database & C
 
 export type Project = {
   id: string; title: string; subtitle: string; short: string; period: string;
-  role: string; tech: string[]; highlights: string[];
+  role: string; tech: string[]; tags: string[]; highlights: string[];
   links: { label: string; href: string }[]; note?: string;
 };
 
@@ -85,6 +85,7 @@ export const PROJECTS: Project[] = [
     short: "Web3-enabled compliance platform for the Bureau of Animal Industry, with Ethereum blockchain integration and PostgreSQL.",
     period: "Aug 2025 – Mar 2026", role: "Research Developer (thesis)",
     tech: ["React", "Vite", "TypeScript", "Node.js", "Express", "PostgreSQL", "Redis", "ethers.js", "Firebase Auth"],
+    tags: ["Web App", "Full-Stack", "React", "Vite", "TypeScript", "Node.js", "Express.js", "PostgreSQL", "Web3 / Ethereum", "GitHub Actions", "Database Design", "ERD", "Dashboard"],
     highlights: [
       "Verifies regulatory compliance records and anchors them on the Ethereum Sepolia testnet.",
       "Handed over to the Bureau of Animal Industry at the end of the thesis.",
@@ -99,6 +100,7 @@ export const PROJECTS: Project[] = [
     id: "sdo-inventory", title: "SDO Caloocan Inventory System", subtitle: "OJT project, Schools Division Office",
     short: "Inventory management for 1,000+ digital assets across 80+ public schools, with automated reports and audit logs.",
     period: "May – Jul 2025", role: "OJT Developer", tech: ["React", "Node.js", "PostgreSQL"],
+    tags: ["Web App", "Full-Stack", "React", "Node.js", "PostgreSQL", "Database Design", "ERD", "Inventory System", "Dashboard"],
     highlights: [
       "Tracks 1,000+ digital assets across 80+ public schools.",
       "PostgreSQL optimization made data retrieval 40% faster.",
@@ -110,6 +112,7 @@ export const PROJECTS: Project[] = [
     id: "circuit-cube", title: "Circuit Cube", subtitle: "3D breadboarding learning platform",
     short: "A learning management system for logic circuits, with a 3D breadboard and logic gate simulation.",
     period: "Jul 2024 – Apr 2025", role: "Developer", tech: ["React", "Vite", "JavaScript"],
+    tags: ["Web App", "React", "Vite", "JavaScript", "3D Simulation"],
     highlights: [
       "Students build and test logic circuits on a 3D breadboard in the browser.",
       "Simulates logic gate behavior in real time.",
@@ -120,6 +123,7 @@ export const PROJECTS: Project[] = [
     id: "pandayo-coffee", title: "Pandayo Coffee", subtitle: "POS and inventory system",
     short: "Point-of-sale and inventory system for a coffee shop, with role-based access for owner, cashier, and staff.",
     period: "In progress", role: "Solo developer", tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
+    tags: ["Web App", "Full-Stack", "Next.js 16", "TypeScript", "Supabase", "Tailwind CSS", "Database Design", "ERD", "Inventory System", "Dashboard"],
     highlights: [
       "Role-based access control for owner, cashier, and staff.",
       "Flow: login, point of sale, inventory, admin dashboard.",

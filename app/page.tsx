@@ -1,10 +1,11 @@
 import Stack from "@/components/Stack";
+import Projects from "@/components/Projects";
 import GithubContributions from "@/components/GithubContributions";
 import Link from "next/link";
 import Chrome from "@/components/Chrome";
 import UccBadge from "@/components/UccBadge";
 import SdoBadge from "@/components/SdoBadge";
-import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, JOURNEY, JOURNEY_PATH, LINKEDIN, PROJECTS, type ContactLink } from "@/lib/data";
+import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, JOURNEY, JOURNEY_PATH, LINKEDIN, type ContactLink } from "@/lib/data";
 
 const Label = ({ n, children }: { n: string; children: string }) => (
   <p className="eyebrow">{n} - {children.toUpperCase()}</p>
@@ -166,18 +167,7 @@ export default function Home() {
         <section id="projects">
           <div className="wrap">
             <div className="sec-head"><Label n="04">Projects</Label><h2 className="sec-title">My Projects</h2></div>
-            <div className="proj-grid">
-              {PROJECTS.map((p) => (
-                <Link href={`/projects/${p.id}`} className="card" key={p.id}>
-                  <div className="thumb-box">{p.title}</div>
-                  <div className="card-body">
-                    <h3>{p.title}<Arrow /></h3>
-                    <p>{p.short}</p>
-                    <div className="chips">{p.tech.slice(0, 4).map((t) => <span className="chip" key={t}>{t}</span>)}</div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <Projects />
           </div>
         </section>
 

@@ -128,8 +128,8 @@ section{padding:0}
 
 /* Stack */
 #stack .sec-head{margin-bottom:1.75rem}
-.filters{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;max-width:900px;margin:0 auto 1.5rem}
-.filter{padding:.3rem 1rem;border-radius:999px;border:1px solid var(--border);background:var(--card);color:var(--text);font:400 .9rem var(--sans);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.filters{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;max-width:1100px;margin:0 auto 2rem}
+.filter{padding:.25rem .75rem;border:0;border-radius:999px;background:var(--chip);color:var(--muted);font:500 .75rem var(--sans);cursor:pointer;transition:background .2s,color .2s}
 .filter:hover{background:var(--chip)}
 .filter.on{background:var(--solid);color:var(--on-solid);border-color:var(--solid)}
 .stack-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;max-width:1100px;margin:0 auto}
