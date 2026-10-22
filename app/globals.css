@@ -323,10 +323,20 @@ footer{padding:3.5rem 0}
   .journey{grid-template-columns:1fr;gap:2.5rem;margin-top:2.75rem;padding:2.25rem 1.5rem;border-radius:18px}
   .journey h3{max-width:24rem}
   .journey-list li{grid-template-columns:28px 58px 1fr;gap:.65rem;font-size:.95rem}
+  /* GitHub card (mobile) */
   .github-card{max-width:none;padding:1.5rem 1.1rem;border-radius:18px}
-  .github-card-head{flex-direction:column}
-  .github-actions{justify-content:flex-start}
+  /* Header: logo on top, then label, title, full-width year tabs, View profile (all centered) */
+  .github-card-head{flex-direction:column;align-items:center;text-align:center;gap:1.25rem}
+  .github-kicker{flex-direction:column;justify-content:center;gap:.6rem}
+  .github-mark{width:2.6rem;height:2.6rem}
+  .github-actions{flex-direction:column;align-items:stretch;gap:1rem;width:100%;text-align:center}
+  .github-years{width:100%}
+  .github-years button{flex:1}
   .github-grid{margin:0}
+  /* Footer: streaks on top, legend on its own row so "More" stays inside the card */
+  .github-card-foot{flex-direction:column;align-items:stretch;gap:1rem}
+  .github-streak strong,.github-streak span{white-space:nowrap}
+  .github-legend{justify-content:flex-end}
   .foot{align-items:flex-start;flex-direction:column;gap:1.5rem}
 }
 @media(max-width:520px){
