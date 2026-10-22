@@ -323,6 +323,7 @@ footer{padding:3.5rem 0}
   .journey{grid-template-columns:1fr;gap:2.5rem;margin-top:2.75rem;padding:2.25rem 1.5rem;border-radius:18px}
   .journey h3{max-width:24rem}
   .journey-list li{grid-template-columns:28px 58px 1fr;gap:.65rem;font-size:.95rem}
+
   /* GitHub card (mobile) */
   .github-card{max-width:none;padding:1.5rem 1.1rem;border-radius:18px}
   /* Header: logo on top, then label, title, full-width year tabs, View profile (all centered) */
@@ -333,10 +334,19 @@ footer{padding:3.5rem 0}
   .github-years{width:100%}
   .github-years button{flex:1}
   .github-grid{margin:0}
-  /* Footer: streaks on top, legend on its own row so "More" stays inside the card */
-  .github-card-foot{flex-direction:column;align-items:stretch;gap:1rem}
-  .github-streak strong,.github-streak span{white-space:nowrap}
-  .github-legend{justify-content:flex-end}
+  /* Footer: streaks on the left, GitHub-style legend on the right, same row */
+  .github-card-foot{flex-direction:row;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.75rem 1rem}
+  .github-streaks{flex-direction:column;align-items:flex-start;gap:.4rem}
+  .github-streak{flex-direction:row;align-items:baseline;gap:0;font-size:.75rem;white-space:nowrap}
+  .github-streak strong{font-size:.75rem}
+  .github-streak span{font-size:.75rem}
+  .github-streak span::before{content:" - ";white-space:pre}
+  /* Compact legend like GitHub: Less, 5 small boxes, More, pushed to the right */
+  .github-legend{width:auto;margin-left:auto;justify-content:flex-end;gap:.25rem;font-size:.7rem}
+  .github-legend .github-cell{width:10px;height:10px;border-radius:2px}
+  .github-legend span:first-child{margin-right:.2rem}
+  .github-legend span:last-child{margin-left:.2rem}
+
   .foot{align-items:flex-start;flex-direction:column;gap:1.5rem}
 }
 @media(max-width:520px){
