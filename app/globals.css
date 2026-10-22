@@ -211,6 +211,17 @@ footer{padding:3.5rem 0}
 .footer-link .bi,.footer-link .icon{width:20px;height:20px}
 .footer-link:hover{opacity:.6;transform:translateY(-1px)}
 
+/* Back to top */
+.to-top{position:fixed;right:1.5rem;bottom:1.5rem;z-index:90;display:flex;align-items:center;justify-content:center;width:3rem;height:3rem;border:none;border-radius:50%;background:var(--solid);color:var(--on-solid);box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .25s,transform .25s,visibility .25s}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top svg{width:20px;height:20px}
+@media(hover:hover){
+  .to-top.show:hover{transform:translateY(-2px)}
+}
+@media(max-width:860px){
+  .to-top{right:1rem;bottom:1rem}
+}
+
 /* Project detail */
 #detail{padding:8rem 0 5rem;min-height:100vh}
 .back{display:inline-block;font-weight:700;margin-bottom:2rem;color:var(--muted)}
