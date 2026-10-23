@@ -77,6 +77,7 @@ export type Project = {
   id: string; title: string; subtitle: string; short: string; period: string;
   role: string; tech: string[]; tags: string[]; highlights: string[];
   links: { label: string; href: string }[]; note?: string;
+  visit?: string; // live URL for the card button. If missing, the card shows "Soon"
 };
 
 export const PROJECTS: Project[] = [
@@ -94,6 +95,7 @@ export const PROJECTS: Project[] = [
       "Won Thesis of the Year, Best Technical Documentation, and Best Research Developer.",
     ],
     links: [{ label: "Live frontend", href: "https://rcv-steel.vercel.app" }],
+    visit: "https://rcv-steel.vercel.app",
     note: "The deployed site is a frontend demo. The backend is currently offline, so login will not work.",
   },
   {
@@ -118,6 +120,7 @@ export const PROJECTS: Project[] = [
       "Simulates logic gate behavior in real time.",
     ],
     links: [{ label: "Live site", href: "https://circuitcube.netlify.app" }],
+    visit: "https://circuitcube.netlify.app",
   },
   {
     id: "pandayo-coffee", title: "Pandayo Coffee", subtitle: "POS and inventory system",

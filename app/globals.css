@@ -182,14 +182,17 @@ section{padding:0}
 .card-body h3{font-size:1.1rem;font-weight:700;line-height:1.25;display:flex;justify-content:space-between;align-items:center}
 .card-body p{color:var(--muted)}
 .card .chips{margin-top:auto;padding-top:.6rem}
-.card .arrow{width:20px;height:20px;opacity:0;transform:translate(-4px,4px);transition:opacity .2s,transform .2s}
-.card:focus-visible .arrow{opacity:1;transform:none}
+.card .card-tags{margin-top:0;padding-top:0}
+.card-main{display:flex;flex-direction:column;flex:1}
+.card-tags .chip{font-size:.75rem;padding:.15rem .6rem;background:var(--chip);color:var(--muted)}
+.card-foot{padding:0 1.4rem 1.4rem}
+.btn.soon{color:var(--muted);cursor:default}
+.btn.soon:hover{transform:none;box-shadow:none}
 
 /* Hover effects only on devices that really hover, so touch screens don't stick */
 @media(hover:hover){
   .btn:hover{box-shadow:var(--shadow);transform:translateY(-1px)}
   .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-  .card:hover .arrow{opacity:1;transform:none}
   .tool:hover{transform:translateY(-2px);border-color:var(--brand,var(--muted));box-shadow:0 6px 20px color-mix(in srgb,var(--brand,var(--muted)) 25%,transparent)}
 }
 
