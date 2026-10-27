@@ -188,6 +188,18 @@ section{padding:0}
 .card-foot{padding:0 1.4rem 1.4rem}
 .btn.soon{color:var(--muted);cursor:default}
 .btn.soon:hover{transform:none;box-shadow:none}
+/* Project card: media, pills, stretched link, action button */
+.card{position:relative}
+.card-media{aspect-ratio:16/10;background:var(--chip);border-bottom:1px solid var(--border);overflow:hidden}
+.card-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.card-media img.contain{object-fit:contain;padding:2rem}
+.labels{display:flex;flex-wrap:wrap;gap:.4rem}
+.label{padding:.3rem .8rem;border:1px solid var(--border);border-radius:999px;background:var(--chip);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.card-link{display:flex;justify-content:space-between;align-items:center;gap:.5rem;width:100%}
+.card-link::after{content:"";position:absolute;inset:0;z-index:1}
+.card-link .arrow{width:18px;height:18px;flex:none}
+.card-action{padding-top:.4rem}
+.card-action .btn{position:relative;z-index:2;border-radius:999px;padding:.6rem 1.4rem}
 
 /* Hover effects only on devices that really hover, so touch screens don't stick */
 @media(hover:hover){

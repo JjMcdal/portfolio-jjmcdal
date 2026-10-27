@@ -78,6 +78,9 @@ export type Project = {
   role: string; tech: string[]; tags: string[]; highlights: string[];
   links: { label: string; href: string }[]; note?: string;
   visit?: string; // live URL for the card button. If missing, the card shows "Soon"
+  labels?: string[]; // two short category pills shown on the card
+  image?: string; // path under /public, e.g. "/projects/rcv.png"
+  imageFit?: "cover" | "contain"; // use "contain" for logos
 };
 
 export const PROJECTS: Project[] = [
