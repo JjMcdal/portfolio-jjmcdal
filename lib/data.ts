@@ -77,9 +77,9 @@ export type Project = {
   id: string; title: string; subtitle: string; short: string; period: string;
   role: string; tech: string[]; tags: string[]; highlights: string[];
   links: { label: string; href: string }[]; note?: string;
-  visit?: string; // live URL for the card button. If missing, the card shows "Soon"
+  visit?: string; // live URL for the card button; otherwise use the first link or the internal-system label
   labels?: string[]; // two short category pills shown on the card
-  image?: string; // path under /public, e.g. "/projects/rcv.png"
+  image?: string; // path under /public, e.g. "/projects/rcv-pic.png"
   imageFit?: "cover" | "contain"; // use "contain" for logos
 };
 
@@ -99,6 +99,9 @@ export const PROJECTS: Project[] = [
     ],
     links: [{ label: "Live frontend", href: "https://rcv-steel.vercel.app" }],
     visit: "https://rcv-steel.vercel.app",
+    labels: ["Web3", "Compliance"],
+    image: "/projects/rcv-pic.png",
+    imageFit: "cover",
     note: "The deployed site is a frontend demo. The backend is currently offline, so login will not work.",
   },
   {
@@ -111,6 +114,7 @@ export const PROJECTS: Project[] = [
       "PostgreSQL optimization made data retrieval 40% faster.",
       "Automated reporting and audit logs for accountability.",
     ],
+    labels: ["Government", "Inventory System"],
     links: [], note: "Internal government system, so there is no public demo.",
   },
   {
@@ -124,6 +128,9 @@ export const PROJECTS: Project[] = [
     ],
     links: [{ label: "Live site", href: "https://circuitcube.netlify.app" }],
     visit: "https://circuitcube.netlify.app",
+    labels: ["Education", "3D Simulation"],
+    image: "/projects/circuit-cube-pic.png",
+    imageFit: "cover",
   },
   {
     id: "pandayo-coffee", title: "Pandayo Coffee", subtitle: "POS and inventory system",
@@ -136,6 +143,9 @@ export const PROJECTS: Project[] = [
       "Supabase handles authentication and the Postgres database.",
     ],
     links: [{ label: "GitHub repo", href: "https://github.com/JjMcdal/pandayo-coffee" }],
+    labels: ["POS", "In Progress"],
+    image: "/projects/pandayo-coffee-pic.png",
+    imageFit: "cover",
     note: "Still being built. Progress is pushed to GitHub regularly.",
   },
 ];
