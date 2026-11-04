@@ -45,9 +45,11 @@ export type StackItem = { name: string; slug: string; cat: string; color: string
 // color = the icon's brand color. "var(--text)" follows the theme (black in light, white in dark)
 export const STACK: StackItem[] = [
   { name: "Bash", slug: "gnubash", cat: "Tools", color: "#4EAA25" },
+  { name: "Claude", slug: "claude", cat: "Automation & AI", color: "#D97757" },
   { name: "Dart", slug: "dart", cat: "Mobile", color: "#0175C2" },
   { name: "Docker", slug: "docker", cat: "Tools", color: "#2496ED" },
   { name: "Ethereum", slug: "ethereum", cat: "Web3", color: "var(--text)" },
+  { name: "Express.js", slug: "express", cat: "Backend", color: "var(--text)" },
   { name: "Firebase", slug: "firebase", cat: "Database & Cloud", color: "#DD2C00" },
   { name: "Flutter", slug: "flutter", cat: "Mobile", color: "#02569B" },
   { name: "Git", slug: "git", cat: "Tools", color: "#F05032" },
@@ -71,8 +73,7 @@ export const STACK: StackItem[] = [
   { name: "Vercel", slug: "vercel", cat: "Database & Cloud", color: "var(--text)" },
 ];
 
-export const STACK_CATS = ["All", "Frontend", "Backend", "Mobile", "Database & Cloud", "Web3", "Tools"];
-
+export const STACK_CATS = ["All", "Frontend", "Backend", "Mobile", "Database & Cloud", "Web3", "Automation & AI", "Tools"];
 export type Project = {
   id: string; title: string; subtitle: string; short: string; period: string;
   role: string; tech: string[]; tags: string[]; highlights: string[];
