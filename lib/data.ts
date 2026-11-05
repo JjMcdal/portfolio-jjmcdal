@@ -62,7 +62,7 @@ export const STACK: StackItem[] = [
   { name: "MySQL", slug: "mysql", cat: "Database & Cloud", color: "#4479A1" },
   { name: "Next.js", slug: "nextdotjs", cat: "Frontend", color: "var(--text)" },
   { name: "Node.js", slug: "nodedotjs", cat: "Backend", color: "#5FA04E" },
-  { name: "n8n", slug: "n8n", cat: "Tools", color: "#EA4B71" },
+  { name: "n8n", slug: "n8n", cat: "Automation & AI", color: "#EA4B71" },
   { name: "PostgreSQL", slug: "postgresql", cat: "Database & Cloud", color: "#4169E1" },
   { name: "Postman", slug: "postman", cat: "Tools", color: "#FF6C37" },
   { name: "React", slug: "react", cat: "Frontend", color: "#61DAFB" },
