@@ -98,6 +98,9 @@ section{padding:0}
 
 .hero-actions{position:relative;display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
 
+/* Equal-size hero buttons: same min width, content centered */
+.hero-actions .btn{min-width:11rem;justify-content:center}
+
 .btn{display:inline-flex;align-items:center;gap:.45rem;padding:.55rem 1.1rem;border-radius:10px;font-size:.95rem;line-height:1.3;font-weight:700;border:1px solid var(--border);background:var(--card);transition:transform .15s,box-shadow .2s}
 
 .btn.solid{background:var(--solid);color:var(--on-solid);border-color:var(--solid)}
