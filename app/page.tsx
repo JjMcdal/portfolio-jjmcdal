@@ -10,8 +10,8 @@ import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, JOURNEY, JOURNEY_P
 const Label = ({ n, children }: { n: string; children: string }) => (
   <p className="eyebrow">{n} - {children.toUpperCase()}</p>
 );
-const MailIcon = () => (
-  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
+const FileIcon = () => (
+  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h6" /></svg>
 );
 const FolderIcon = () => (
   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
@@ -63,7 +63,7 @@ export default function Home() {
             <div className="hero-actions">
               <Link href="/#projects" className="btn solid"><FolderIcon />View projects</Link>
               {/* Versioned filename (see RESUME_URL in lib/data.ts) so phones never serve a cached old resume */}
-              <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="btn"><MailIcon />Open CV</a>
+              <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="btn"><FileIcon />Open Resume</a>
             </div>
           </div>
         </section>
