@@ -2,7 +2,7 @@ export const EMAIL = "jjmcdalnabong2001@gmail.com";
 export const GITHUB = "https://github.com/JjMcdal";
 
 export const FACEBOOK = "https://www.facebook.com/jjmcdal.nabong";
-export const LINKEDIN = "https://www.linkedin.com/in/jj-mcdal-nabong-64bba7397";
+export const LINKEDIN = "https://www.linkedin.com/in/jjmcdalnabong";
 export const SITE = "https://portfolio-jjmcdal.vercel.app";
 
 // Opens the Gmail compose window directly, with "To" and "Subject" already filled in
@@ -20,7 +20,7 @@ export const CONTACTS: ContactLink[] = ([
   { name: "Facebook", label: "facebook.com/jjmcdal.nabong", href: FACEBOOK, icon: "facebook" },
   { name: "GitHub", label: "github.com/JjMcdal", href: GITHUB, icon: "github" },
   { name: "Gmail", label: EMAIL, href: GMAIL_COMPOSE, icon: "gmail" },
-  { name: "LinkedIn", label: "linkedin.com/in/jj-mcdal-nabong", href: LINKEDIN, icon: "linkedin" },
+  { name: "LinkedIn", label: "linkedin.com/in/jjmcdalnabong", href: LINKEDIN, icon: "linkedin" },
   { name: "Portfolio", label: "portfolio-jjmcdal.vercel.app", href: SITE, icon: "site" },
 ] satisfies ContactLink[]).sort((a, b) => a.name.localeCompare(b.name));
 
@@ -31,8 +31,6 @@ export const BUILT_FOR = [
 ];
 
 export const CERTS = [
-  "ISTQB Foundation Level",
-  "Certified ScrumMaster (CSM)",
   "Postman API Fundamentals",
   "Simplilearn: Generative AI",
   "Simplilearn: Cybersecurity",
