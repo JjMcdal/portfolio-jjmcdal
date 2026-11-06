@@ -123,15 +123,16 @@ export default function Home() {
               <div>
                 <p className="col-label">Work</p>
                 <article className="entry">
-                  <UccBadge />
+                  {/* No logo yet, so a text badge reuses the entry-icon style */}
+                  <div className="entry-icon org-badge" aria-hidden="true">PC</div>
                   <div>
-                    <p className="entry-meta">Aug 2025 – Mar 2026 · Caloocan City</p>
-                    <h3>Research Developer</h3>
-                    <p className="org">Thesis: Regulatory Compliance Verification System</p>
+                    <p className="entry-meta">Sept 2026 – Present · North Caloocan</p>
+                    <h3>Full-Stack Developer</h3>
+                    <p className="org">Pandayo Coffee</p>
                     <ul>
-                      <li>Built a Web3-enabled compliance platform that was handed over to the Bureau of Animal Industry.</li>
-                      <li>Set up GitHub Actions CI/CD to deploy to Vercel, Railway, Heroku, and Firebase.</li>
-                      <li>Won Thesis of the Year, Best Technical Documentation, and Best Research Developer.</li>
+                      <li>Developing a full-stack POS and inventory system with Next.js, TypeScript, Tailwind CSS, and Supabase.</li>
+                      <li>Implementing role-based access control for admin, cashiers, and staff using Supabase Auth.</li>
+                      <li>Building an admin dashboard for real-time inventory tracking and sales monitoring.</li>
                     </ul>
                   </div>
                 </article>
@@ -153,7 +154,16 @@ export default function Home() {
                 <p className="col-label">Education</p>
                 <article className="entry">
                   <UccBadge />
-                  <div><p className="entry-meta">Class of 2026</p><h3>University of Caloocan City</h3><p className="org">BS Computer Science</p></div>
+                  <div>
+                    <p className="entry-meta">Graduated April 2026</p>
+                    <h3>University of Caloocan City</h3>
+                    <p className="org">BS Computer Science</p>
+                    <ul>
+                      <li>Thesis of the Year</li>
+                      <li>Best Technical Documentation</li>
+                      <li>Best Research Developer</li>
+                    </ul>
+                  </div>
                 </article>
                 <p className="col-label" style={{ marginTop: "2.5rem" }}>Certifications</p>
                 <ul className="chips">{CERTS.map((c) => <li className="chip" key={c}>{c}</li>)}</ul>
