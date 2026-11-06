@@ -5,13 +5,13 @@ import Link from "next/link";
 import Chrome from "@/components/Chrome";
 import UccBadge from "@/components/UccBadge";
 import SdoBadge from "@/components/SdoBadge";
-import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, JOURNEY, JOURNEY_PATH, LINKEDIN, type ContactLink } from "@/lib/data";
+import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, JOURNEY, JOURNEY_PATH, LINKEDIN, RESUME_URL, type ContactLink } from "@/lib/data";
 
 const Label = ({ n, children }: { n: string; children: string }) => (
   <p className="eyebrow">{n} - {children.toUpperCase()}</p>
 );
-const FileIcon = () => (
-  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h6" /></svg>
+const MailIcon = () => (
+  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
 );
 const FolderIcon = () => (
   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
@@ -61,8 +61,9 @@ export default function Home() {
             <h1 className="hero-title"><span className="iam">I am</span><span className="name">jjmcdal</span></h1>
             <p>Full-stack developer building web and mobile systems, from database and API to polished UI.</p>
             <div className="hero-actions">
-              <Link href="/#projects" className="btn solid"><FolderIcon />View Projects</Link>
-              <a href="/jjmcdal-cv.pdf" target="_blank" rel="noopener noreferrer" className="btn"><FileIcon />Open Resume</a>
+              <Link href="/#projects" className="btn solid"><FolderIcon />View projects</Link>
+              {/* Versioned filename (see RESUME_URL in lib/data.ts) so phones never serve a cached old resume */}
+              <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="btn"><MailIcon />Open CV</a>
             </div>
           </div>
         </section>
@@ -123,16 +124,15 @@ export default function Home() {
               <div>
                 <p className="col-label">Work</p>
                 <article className="entry">
-                  {/* No logo yet, so a text badge reuses the entry-icon style */}
-                  <div className="entry-icon org-badge" aria-hidden="true">PC</div>
+                  <UccBadge />
                   <div>
-                    <p className="entry-meta">Sept 2026 – Present · North Caloocan</p>
-                    <h3>Full-Stack Developer</h3>
-                    <p className="org">Pandayo Coffee</p>
+                    <p className="entry-meta">Aug 2025 – Mar 2026 · Caloocan City</p>
+                    <h3>Research Developer</h3>
+                    <p className="org">Thesis: Regulatory Compliance Verification System</p>
                     <ul>
-                      <li>Developing a full-stack POS and inventory system with Next.js, TypeScript, Tailwind CSS, and Supabase.</li>
-                      <li>Implementing role-based access control for admin, cashiers, and staff using Supabase Auth.</li>
-                      <li>Building an admin dashboard for real-time inventory tracking and sales monitoring.</li>
+                      <li>Built a Web3-enabled compliance platform that was handed over to the Bureau of Animal Industry.</li>
+                      <li>Set up GitHub Actions CI/CD to deploy to Vercel, Railway, Heroku, and Firebase.</li>
+                      <li>Won Thesis of the Year, Best Technical Documentation, and Best Research Developer.</li>
                     </ul>
                   </div>
                 </article>
@@ -154,16 +154,7 @@ export default function Home() {
                 <p className="col-label">Education</p>
                 <article className="entry">
                   <UccBadge />
-                  <div>
-                    <p className="entry-meta">Graduated April 2026</p>
-                    <h3>University of Caloocan City</h3>
-                    <p className="org">BS Computer Science</p>
-                    <ul>
-                      <li>Thesis of the Year</li>
-                      <li>Best Technical Documentation</li>
-                      <li>Best Research Developer</li>
-                    </ul>
-                  </div>
+                  <div><p className="entry-meta">Class of 2026</p><h3>University of Caloocan City</h3><p className="org">BS Computer Science</p></div>
                 </article>
                 <p className="col-label" style={{ marginTop: "2.5rem" }}>Certifications</p>
                 <ul className="chips">{CERTS.map((c) => <li className="chip" key={c}>{c}</li>)}</ul>

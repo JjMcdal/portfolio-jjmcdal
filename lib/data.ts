@@ -9,6 +9,8 @@ export const SITE = "https://portfolio-jjmcdal.vercel.app";
 export const GMAIL_COMPOSE =
   `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=${encodeURIComponent("Hello from your portfolio")}`;
 
+// Versioned filename so phones don't serve a cached old resume. Change the date when the PDF is updated.
+export const RESUME_URL = "/jjmcdal-resume-2026-11.pdf";
 export type ContactLink = {
   name: string; // used for sorting only
   label: string; // the text shown on the page
