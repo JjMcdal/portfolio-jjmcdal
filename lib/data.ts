@@ -74,6 +74,7 @@ export const STACK: StackItem[] = [
 ];
 
 export const STACK_CATS = ["All", "Frontend", "Backend", "Mobile", "Database & Cloud", "Web3", "Automation & AI", "Tools"];
+
 export type Project = {
   id: string; title: string; subtitle: string; short: string; period: string;
   role: string; tech: string[]; tags: string[]; highlights: string[];
@@ -92,9 +93,10 @@ export const PROJECTS: Project[] = [
     tech: ["React", "Vite", "TypeScript", "Node.js", "Express", "PostgreSQL", "Redis", "ethers.js", "Firebase Auth"],
     tags: ["Web App", "Full-Stack", "React", "Vite", "TypeScript", "Node.js", "Express.js", "PostgreSQL", "Web3 / Ethereum", "GitHub Actions", "Database Design", "ERD", "Dashboard"],
     highlights: [
+      "Co-developed a full-stack Web3 RegTech platform to automate Philippine animal feed compliance verification.",
       "Verifies regulatory compliance records and anchors them on the Ethereum Sepolia testnet.",
-      "Handed over to the Bureau of Animal Industry at the end of the thesis.",
-      "Reported a 70% improvement in processing efficiency.",
+      "Delivered and formally handed over to the Bureau of Animal Industry for evaluation.",
+      "Improved verification efficiency by 70%.",
       "CI/CD through GitHub Actions to Vercel, Railway, Heroku, and Firebase.",
       "Won Thesis of the Year, Best Technical Documentation, and Best Research Developer.",
     ],
@@ -125,10 +127,10 @@ export const PROJECTS: Project[] = [
     tech: ["React", "Vite", "TypeScript", "Node.js", "PostgreSQL"],
     tags: ["Web App", "Full-Stack", "React", "Vite", "TypeScript", "Node.js", "PostgreSQL", "JavaScript", "3D Simulation"],
     highlights: [
-  "Students build and test logic circuits on a 3D breadboard in the browser.",
-  "Simulates logic gate behavior in real time, as a 1:1 digital twin of physical hardware.",
-  "Optimized rendering for smooth 3D performance in the browser.",
-],
+      "Students build and test logic circuits on a 3D breadboard in the browser.",
+      "Simulates logic gate behavior in real time, as a 1:1 digital twin of physical hardware.",
+      "Optimized rendering for smooth 3D performance in the browser.",
+    ],
     links: [{ label: "Live site", href: "https://circuitcube.netlify.app" }],
     visit: "https://circuitcube.netlify.app",
     labels: ["Education", "3D Simulation"],
@@ -137,12 +139,14 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "pandayo-coffee", title: "Pandayo Coffee", subtitle: "POS and inventory system",
-    short: "Point-of-sale and inventory system for a coffee shop, with role-based access for owner, cashier, and staff.",
-    period: "In progress", role: "Solo developer", tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
-    tags: ["Web App", "Full-Stack", "Next.js 16", "TypeScript", "Supabase", "Tailwind CSS", "Database Design", "ERD", "Inventory System", "Dashboard"],
+    short: "Point-of-sale and inventory system for a coffee shop, with role-based access for admin, cashier, and staff.",
+    period: "Sept 2026 – Present", role: "Full-Stack Developer (Solo Project)",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "React", "PostgreSQL"],
+    tags: ["Web App", "Full-Stack", "React", "Next.js 16", "TypeScript", "PostgreSQL", "Supabase", "Tailwind CSS", "Database Design", "ERD", "Inventory System", "Dashboard"],
     highlights: [
-      "Role-based access control for owner, cashier, and staff.",
+      "Role-based access control for admin, cashier, and staff using Supabase Auth.",
       "Flow: login, point of sale, inventory, admin dashboard.",
+      "Admin dashboard for real-time inventory tracking and sales monitoring.",
       "Supabase handles authentication and the Postgres database.",
     ],
     links: [{ label: "GitHub repo", href: "https://github.com/JjMcdal/pandayo-coffee" }],
