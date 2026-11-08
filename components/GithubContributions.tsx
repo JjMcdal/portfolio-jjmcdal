@@ -51,7 +51,8 @@ async function fetchYear(year: number): Promise<ContributionYear> {
 export default async function GithubContributions() {
   let years: ContributionYear[];
   try {
-    years = await Promise.all(YEARS.map(fetchYear));
+    // Pass only `year`, because .map() would also pass index and array into the cached function
+    years = await Promise.all(YEARS.map((year) => fetchYear(year)));
   } catch {
     // Fallback only. It is not cached, because the throw happens inside fetchYear
     years = YEARS.map((year) => ({ year, cells: [] }));

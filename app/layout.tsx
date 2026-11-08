@@ -16,7 +16,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body>
+      {/* Browser extensions like Grammarly add attributes to <body> before React loads, which causes a hydration warning */}
+      <body suppressHydrationWarning>
         {children}
         <ScrollToTop />
       </body>
