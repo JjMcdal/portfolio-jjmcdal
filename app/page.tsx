@@ -124,10 +124,23 @@ export default function Home() {
               <div>
                 <p className="col-label">Work</p>
                 <article className="entry">
+                  <div className="entry-icon" aria-hidden="true">PC</div>
+                  <div>
+                    <p className="entry-meta">Sept 2026 – Present · North Caloocan</p>
+                    <h3>Full Stack Developer</h3>
+                    <p className="org">Pandayo Coffee (solo project, in progress)</p>
+                    <ul>
+                      <li>Building a full-stack POS and inventory system with Next.js, Tailwind CSS, TypeScript, and Supabase.</li>
+                      <li>Implementing role-based access control for admin, cashiers, and staff using Supabase Auth.</li>
+                      <li>Building an admin dashboard for real-time inventory tracking and sales monitoring.</li>
+                    </ul>
+                  </div>
+                </article>
+                <article className="entry">
                   <UccBadge />
                   <div>
-                    <p className="entry-meta">Aug 2025 – Mar 2026 · Caloocan City</p>
-                    <h3>Research Developer</h3>
+                    <p className="entry-meta">Aug 2025 – Feb 2026 · Caloocan City</p>
+                    <h3>Full Stack Developer · Documentation Lead</h3>
                     <p className="org">Thesis: Regulatory Compliance Verification System</p>
                     <ul>
                       <li>Built a Web3-enabled compliance platform that was handed over to the Bureau of Animal Industry.</li>
@@ -140,7 +153,7 @@ export default function Home() {
                   <SdoBadge />
                   <div>
                     <p className="entry-meta">May – Jul 2025 · Caloocan City</p>
-                    <h3>OJT Developer</h3>
+                    <h3>Full Stack Developer (Intern)</h3>
                     <p className="org">Schools Division Office of Caloocan City</p>
                     <ul>
                       <li>Built an inventory management system with React and Node.js for 1,000+ digital assets across 80+ public schools.</li>

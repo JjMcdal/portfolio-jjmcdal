@@ -71,6 +71,7 @@ export const STACK: StackItem[] = [
   { name: "Tailwind CSS", slug: "tailwindcss", cat: "Frontend", color: "#06B6D4" },
   { name: "TypeScript", slug: "typescript", cat: "Frontend", color: "#3178C6" },
   { name: "Vercel", slug: "vercel", cat: "Database & Cloud", color: "var(--text)" },
+  { name: "Vite", slug: "vite", cat: "Frontend", color: "#646CFF" },
 ];
 
 export const STACK_CATS = ["All", "Frontend", "Backend", "Mobile", "Database & Cloud", "Web3", "Automation & AI", "Tools"];
@@ -89,14 +90,13 @@ export const PROJECTS: Project[] = [
   {
     id: "rcv", title: "RCV System", subtitle: "Regulatory Compliance Verification",
     short: "Web3-enabled compliance platform for the Bureau of Animal Industry, with Ethereum blockchain integration and PostgreSQL.",
-    period: "Aug 2025 – Mar 2026", role: "Research Developer (thesis)",
+    period: "Aug 2025 – Feb 2026", role: "Full Stack Developer · Documentation Lead",
     tech: ["React", "Vite", "TypeScript", "Node.js", "Express", "PostgreSQL", "Redis", "ethers.js", "Firebase Auth"],
     tags: ["Web App", "Full-Stack", "React", "Vite", "TypeScript", "Node.js", "Express.js", "PostgreSQL", "Web3 / Ethereum", "GitHub Actions", "Database Design", "ERD", "Dashboard"],
     highlights: [
       "Co-developed a full-stack Web3 RegTech platform to automate Philippine animal feed compliance verification.",
       "Verifies regulatory compliance records and anchors them on the Ethereum Sepolia testnet.",
       "Delivered and formally handed over to the Bureau of Animal Industry for evaluation.",
-      "Improved verification efficiency by 70%.",
       "CI/CD through GitHub Actions to Vercel, Railway, Heroku, and Firebase.",
       "Won Thesis of the Year, Best Technical Documentation, and Best Research Developer.",
     ],
@@ -110,7 +110,7 @@ export const PROJECTS: Project[] = [
   {
     id: "sdo-inventory", title: "SDO Caloocan Inventory System", subtitle: "OJT project, Schools Division Office",
     short: "Inventory management for 1,000+ digital assets across 80+ public schools, with automated reports and audit logs.",
-    period: "May – Jul 2025", role: "OJT Developer", tech: ["React", "Node.js", "PostgreSQL"],
+    period: "May – Jul 2025", role: "Full Stack Developer (Intern)", tech: ["React", "Node.js", "PostgreSQL"],
     tags: ["Web App", "Full-Stack", "React", "Node.js", "PostgreSQL", "Database Design", "ERD", "Inventory System", "Dashboard"],
     highlights: [
       "Tracks 1,000+ digital assets across 80+ public schools.",
