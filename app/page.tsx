@@ -5,6 +5,7 @@ import Link from "next/link";
 import Chrome from "@/components/Chrome";
 import UccBadge from "@/components/UccBadge";
 import SdoBadge from "@/components/SdoBadge";
+import PandayoBadge from "@/components/PandayoBadge";
 import { BUILT_FOR, CERTS, CONTACTS, EMAIL, FACEBOOK, GITHUB, JOURNEY, JOURNEY_PATH, LINKEDIN, RESUME_URL, type ContactLink } from "@/lib/data";
 
 const Label = ({ n, children }: { n: string; children: string }) => (
@@ -124,7 +125,7 @@ export default function Home() {
               <div>
                 <p className="col-label">Work</p>
                 <article className="entry">
-                  <div className="entry-icon" aria-hidden="true">PC</div>
+                  <PandayoBadge />
                   <div>
                     <p className="entry-meta">Sept 2026 – Present · North Caloocan</p>
                     <h3>Full Stack Developer</h3>
