@@ -241,6 +241,9 @@ section{padding:0}
 
 .org-badge img{display:block;width:100%;height:100%;object-fit:contain;padding:.25rem}
 
+/* Pandayo logo: fill the whole badge and zoom in, so the cream JPG background does not show as a box inside the badge */
+.org-badge img.pandayo-logo{padding:0;object-fit:cover;transform:scale(1.5)}
+
 .entry-meta{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
 
 .entry h3{font-size:1.2rem;font-weight:700;letter-spacing:0;line-height:1.25;margin:.2rem 0}

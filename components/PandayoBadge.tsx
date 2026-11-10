@@ -14,6 +14,7 @@ export default function PandayoBadge() {
         <img
           src="/images/pandayo-logo.jpg"
           alt="Pandayo Coffee logo"
+          className="pandayo-logo"
           onError={() => setImageFailed(true)}
         />
       )}
