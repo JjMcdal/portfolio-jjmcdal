@@ -26,10 +26,12 @@ export const CONTACTS: ContactLink[] = ([
   { name: "Portfolio", label: "portfolio-jjmcdal.vercel.app", href: SITE, icon: "site" },
 ] satisfies ContactLink[]).sort((a, b) => a.name.localeCompare(b.name));
 
-export const BUILT_FOR = [
-  "Bureau of Animal Industry",
-  "Schools Division Office of Caloocan City",
-  "University of Caloocan City",
+export type BuiltFor = { name: string; logo: string };
+
+export const BUILT_FOR: BuiltFor[] = [
+  { name: "Bureau of Animal Industry", logo: "/images/bai-logo.jpg" },
+  { name: "Schools Division Office of Caloocan City", logo: "/images/sdo-logo.jpg" },
+  { name: "University of Caloocan City", logo: "/images/ucc-logo.png" },
 ];
 
 export const CERTS = [

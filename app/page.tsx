@@ -73,8 +73,12 @@ export default function Home() {
           <p className="marquee-label">Built for</p>
           <div className="marquee"><div className="marquee-track">
             {/* Only the first set is read by screen readers; the rest are visual duplicates for the loop */}
-            {[...marquee, ...marquee].map((n, i) => (
-              <span className="marquee-item" key={i} aria-hidden={i >= BUILT_FOR.length ? true : undefined}>{n}</span>
+            {[...marquee, ...marquee].map((item, i) => (
+              <span className="marquee-item" key={i} aria-hidden={i >= BUILT_FOR.length ? true : undefined}>
+                {/* Name goes in alt since there is no text label. Duplicates are aria-hidden, so their alt is empty. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={item.logo} alt={i < BUILT_FOR.length ? item.name : ""} height={56} />
+              </span>
             ))}
           </div></div>
         </section>

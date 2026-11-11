@@ -121,7 +121,9 @@ section{padding:0}
 
 .marquee:hover .marquee-track{animation-play-state:paused}
 
-.marquee-item{padding:.9rem 1.5rem;border:1px solid var(--border);border-radius:14px;font-weight:700;white-space:nowrap;background:var(--card)}
+.marquee-item{display:inline-flex;align-items:center;justify-content:center;padding:1rem 1.75rem;border:1px solid var(--border);border-radius:14px;background:var(--card)}
+
+.marquee-item img{display:block;height:56px;width:auto;max-width:none;object-fit:contain;background:#fff;border-radius:8px;padding:4px}
 
 @keyframes scroll{to{transform:translateX(-50%)}}
 
