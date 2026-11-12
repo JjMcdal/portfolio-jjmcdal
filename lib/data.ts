@@ -32,6 +32,7 @@ export const BUILT_FOR: BuiltFor[] = [
   { name: "Bureau of Animal Industry", logo: "/images/bai-logo.jpg" },
   { name: "Schools Division Office of Caloocan City", logo: "/images/sdo-logo.jpg" },
   { name: "University of Caloocan City", logo: "/images/ucc-logo.png" },
+  { name: "Pandayo Coffee", logo: "/images/pandayo-logo.jpg" },
 ];
 
 export const CERTS = [

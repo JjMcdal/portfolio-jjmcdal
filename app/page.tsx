@@ -51,7 +51,6 @@ const FOOTER_LINKS = [
 ];
 
 export default function Home() {
-  const marquee = [...BUILT_FOR, ...BUILT_FOR, ...BUILT_FOR, ...BUILT_FOR];
   return (
     <>
       <Chrome />
@@ -69,18 +68,17 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Static row: each logo appears once, so no duplicated items and no aria-hidden workaround */}
         <section className="marquee-sec" aria-label="Built for">
           <p className="marquee-label">Built for</p>
-          <div className="marquee"><div className="marquee-track">
-            {/* Only the first set is read by screen readers; the rest are visual duplicates for the loop */}
-            {[...marquee, ...marquee].map((item, i) => (
-              <span className="marquee-item" key={i} aria-hidden={i >= BUILT_FOR.length ? true : undefined}>
-                {/* Name goes in alt since there is no text label. Duplicates are aria-hidden, so their alt is empty. */}
+          <ul className="built-row">
+            {BUILT_FOR.map((item) => (
+              <li className="marquee-item" key={item.name}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={item.logo} alt={i < BUILT_FOR.length ? item.name : ""} height={56} />
-              </span>
+                <img src={item.logo} alt={item.name} height={56} />
+              </li>
             ))}
-          </div></div>
+          </ul>
         </section>
 
         <section id="about">
