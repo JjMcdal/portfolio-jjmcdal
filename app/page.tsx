@@ -68,17 +68,29 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Static row: each logo appears once, so no duplicated items and no aria-hidden workaround */}
+        {/* The second visual set keeps the motion continuous; it is hidden from assistive technology. */}
         <section className="marquee-sec" aria-label="Built for">
           <p className="marquee-label">Built for</p>
-          <ul className="built-row">
-            {BUILT_FOR.map((item) => (
-              <li className="marquee-item" key={item.name}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={item.logo} alt={item.name} height={56} />
-              </li>
-            ))}
-          </ul>
+          <div className="marquee">
+            <div className="built-row">
+              <ul className="built-set">
+                {BUILT_FOR.map((item) => (
+                  <li className="marquee-item" key={item.name}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={item.logo} alt={item.name} height={56} />
+                  </li>
+                ))}
+              </ul>
+              <ul className="built-set" aria-hidden="true">
+                {BUILT_FOR.map((item) => (
+                  <li className="marquee-item" key={`loop-${item.name}`}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={item.logo} alt="" height={56} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section id="about">
