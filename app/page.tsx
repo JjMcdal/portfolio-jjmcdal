@@ -139,19 +139,6 @@ export default function Home() {
               <div>
                 <p className="col-label">Work</p>
                 <article className="entry">
-                  <PandayoBadge />
-                  <div>
-                    <p className="entry-meta">Sept 2026 – Present · North Caloocan</p>
-                    <h3>Full Stack Developer</h3>
-                    <p className="org">Pandayo Coffee (solo project, in progress)</p>
-                    <ul>
-                      <li>Building a full-stack POS and inventory system with Next.js, Tailwind CSS, TypeScript, and Supabase.</li>
-                      <li>Implementing role-based access control for admin, cashiers, and staff using Supabase Auth.</li>
-                      <li>Building an admin dashboard for real-time inventory tracking and sales monitoring.</li>
-                    </ul>
-                  </div>
-                </article>
-                <article className="entry">
                   <UccBadge />
                   <div>
                     <p className="entry-meta">Aug 2025 – Feb 2026 · Caloocan City</p>
@@ -174,6 +161,19 @@ export default function Home() {
                       <li>Built an inventory management system with React and Node.js for 1,000+ digital assets across 80+ public schools.</li>
                       <li>Optimized PostgreSQL queries, making data retrieval 40% faster.</li>
                       <li>Added automated reporting and audit logs.</li>
+                    </ul>
+                  </div>
+                </article>
+                <article className="entry">
+                  <PandayoBadge />
+                  <div>
+                    <p className="entry-meta">Sept 2026 – Present · North Caloocan</p>
+                    <h3>Full Stack Developer</h3>
+                    <p className="org">Pandayo Coffee (solo project, in progress)</p>
+                    <ul>
+                      <li>Building a full-stack POS and inventory system with Next.js, Tailwind CSS, TypeScript, and Supabase.</li>
+                      <li>Implementing role-based access control for admin, cashiers, and staff using Supabase Auth.</li>
+                      <li>Building an admin dashboard for real-time inventory tracking and sales monitoring.</li>
                     </ul>
                   </div>
                 </article>
