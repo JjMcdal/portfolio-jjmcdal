@@ -58,8 +58,8 @@ export default function Home() {
         <section className="hero" id="home">
           <div className="wrap">
             {/* h1 so the page has a main heading for SEO and screen readers */}
-            <h1 className="hero-title"><span className="iam">I am</span><span className="name">jjmcdal</span></h1>
-            <p>Full-stack developer building web and mobile systems, from database and API to polished UI.</p>
+            <h1 className="hero-title"><span className="iam">I am</span><span className="name">Mcdal</span></h1>
+            <p>Aspiring Software Engineer &amp; Full-Stack Developer building scalable web and mobile applications&mdash;from database and API to polished UI.</p>
             <div className="hero-actions">
               <Link href="/#projects" className="btn solid"><FolderIcon />View projects</Link>
               {/* Versioned filename (see RESUME_URL in lib/data.ts) so phones never serve a cached old resume */}
@@ -103,8 +103,9 @@ export default function Home() {
               </div>
               <div>
                 <h2>Hi, I&apos;m Jj Mcdal Nabong</h2>
-                <p>I&apos;m a Computer Science graduate from the University of Caloocan City. I build web systems end to end: the database, the API, and the interface people actually use. My thesis, the Regulatory Compliance Verification System, was handed over to the Bureau of Animal Industry.</p>
-                <p>During my OJT at the Schools Division Office of Caloocan City, I built an inventory system that tracks 1,000+ digital assets across 80+ public schools. I&apos;m now looking for a Full-Stack Engineer role in Metro Manila.</p>
+                <p>I am an aspiring software engineer and a 2026 Computer Science graduate from the University of Caloocan City. My technical journey is anchored by our award-winning thesis&mdash;the Web3-enabled Regulatory Compliance Verification (RCV) System&mdash;which was successfully developed and handed over to the Bureau of Animal Industry.</p>
+                <p>Professionally, I gained hands-on experience during my internship at the Schools Division Office (SDO) of Caloocan City, where I engineered a centralized inventory system tracking over 1,000 digital assets across 80+ public schools while optimizing database performance by 40%.</p>
+                <p>Currently, I am actively upskilling and building an inventory and POS system for Pandayo Coffee featuring admin, POS, and staff modules, as I look for full-time opportunities as a software engineer.</p>
               </div>
             </div>
 
