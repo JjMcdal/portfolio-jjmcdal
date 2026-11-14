@@ -46,7 +46,7 @@ section{padding:0}
 
 /* Logo: hidden at the top of the home page, fades/slides in after scroll */
 
-.nav-logo{font-weight:700;letter-spacing:0;font-size:1.1rem;max-width:3rem;overflow:hidden;white-space:nowrap;transition:opacity .2s ease;visibility:visible}
+.nav-logo{font-weight:700;letter-spacing:0;font-size:1.1rem;max-width:12rem;overflow:hidden;white-space:nowrap;transition:opacity .2s ease;visibility:visible}
 
 .nav-logo.hide{max-width:0;margin-right:-1.75rem;opacity:0;visibility:hidden;pointer-events:none;transition:none}
 
@@ -760,7 +760,7 @@ footer{padding:3.5rem 0}
 
   .nav.pill{top:.75rem;left:50%;width:calc(100% - 1.5rem);max-width:none;padding:.55rem .7rem;border-color:var(--border);border-radius:999px;box-shadow:var(--shadow);transform:translateX(-50%) scale(1)}
 
-  .nav-logo{display:block;flex:none;max-width:2rem;margin:0;font-size:1rem}
+  .nav-logo{display:block;flex:none;max-width:7rem;margin:0;font-size:1rem}
 
   .journey-nav,.nav.journey-nav.pill{left:0;width:100%;gap:.7rem;padding-left:1rem;padding-right:1rem;transform:none}
 
@@ -889,3 +889,7 @@ footer{padding:3.5rem 0}
 }
 
 @media(prefers-reduced-motion:reduce){.built-row{animation:none}html{scroll-behavior:auto}*{transition:none!important}.journey-btn:hover,.journey-btn:active,.journey-btn:hover .icon,.journey-btn:focus-visible .icon,.journey-primary:hover,.journey-primary:active{transform:none}}
+
+/* Nav logo: text wordmark, italic and light so it matches the nav links */
+.nav-logo{font-style:italic;font-weight:400;font-size:.95rem}
+@media(max-width:860px){.nav-logo{font-size:.78rem}}

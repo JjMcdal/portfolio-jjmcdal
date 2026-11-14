@@ -180,7 +180,7 @@ export default function Chrome({ variant = "default" }: { variant?: "default" | 
             aria-hidden={!showLogo}
             tabIndex={showLogo ? 0 : -1}
           >
-            jj.
+            Mcdal
           </Link>
         ) : null}
         <div className={"nav-links" + (isJourney ? " journey-nav-links" : "")}>
