@@ -143,7 +143,7 @@ export default function Chrome({ variant = "default" }: { variant?: "default" | 
       icon: s as CommandIcon,
       run: () => navigateToSection(s),
     })),
-    { name: "Toggle Dark Mode", group: "Actions", icon: "theme", run: toggleTheme },
+    { name: dark ? "Toggle Light Mode" : "Toggle Dark Mode", group: "Actions", icon: "theme", run: toggleTheme },
   ];
   const items = commands.filter((c) => c.name.toLowerCase().includes(q.trim().toLowerCase()));
 
@@ -218,7 +218,7 @@ export default function Chrome({ variant = "default" }: { variant?: "default" | 
           <span className="kbd">{mac ? "⌘ K" : "Ctrl K"}</span>
         </button>
         </> : null}
-        <button className="switch" onClick={toggleTheme} aria-label="Toggle dark mode">
+        <button className="switch" onClick={toggleTheme} aria-label={dark ? "Toggle light mode" : "Toggle dark mode"}>
           <span className="track"><span className="thumb" /></span>
           <span className="switch-label">{dark ? "Light" : "Dark"}</span>
         </button>
