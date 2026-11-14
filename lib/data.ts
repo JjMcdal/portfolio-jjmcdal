@@ -23,7 +23,6 @@ export const CONTACTS: ContactLink[] = ([
   { name: "GitHub", label: "github.com/JjMcdal", href: GITHUB, icon: "github" },
   { name: "Gmail", label: EMAIL, href: GMAIL_COMPOSE, icon: "gmail" },
   { name: "LinkedIn", label: "linkedin.com/in/jjmcdalnabong", href: LINKEDIN, icon: "linkedin" },
-  { name: "Portfolio", label: "portfolio-jjmcdal.vercel.app", href: SITE, icon: "site" },
 ] satisfies ContactLink[]).sort((a, b) => a.name.localeCompare(b.name));
 
 export type BuiltFor = { name: string; logo: string };
