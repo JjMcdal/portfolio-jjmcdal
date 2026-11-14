@@ -218,7 +218,7 @@ export default function Home() {
       </main>
       <footer>
         <div className="wrap foot">
-          <div className="foot-left"><b>jj.</b> <span>&copy; 2026 Jj Mcdal Nabong</span></div>
+          <div className="foot-left"><span>&copy; 2026 Jj Mcdal Nabong</span></div>
           <nav className="footer-links" aria-label="Social and contact links">
             {FOOTER_LINKS.map((link) => (
               <a
