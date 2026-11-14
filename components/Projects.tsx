@@ -74,10 +74,10 @@ export default function Projects() {
             .sort((a, b) => Number(b === tag) - Number(a === tag))
             .slice(0, 3);
 
-          // Prefer a deployed demo; otherwise link to the first available resource.
+          // Prefer the deployed site; otherwise link to the first available resource.
           const firstLink = project.links[0];
           const action = project.visit
-            ? { label: "Demo", href: project.visit }
+            ? { label: "View", href: project.visit }
             : firstLink
               ? {
                   label: firstLink.label === "GitHub repo" ? "GitHub" : firstLink.label,
