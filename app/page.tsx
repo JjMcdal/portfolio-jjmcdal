@@ -111,7 +111,7 @@ export default function Home() {
 
             <div className="journey-heading">
               <p className="journey-eyebrow"><span aria-hidden="true" />TIMELINE</p>
-              <h2>The story behind the code.</h2>
+              <h2>My Developer Journey (2022&ndash;2026)</h2>
             </div>
             <div className="journey">
               <div className="journey-intro">

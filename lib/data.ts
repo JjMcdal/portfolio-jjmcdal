@@ -164,12 +164,11 @@ export type JourneyStep = { year: string; title: string; text: string };
 
 // Short title shows in the About card timeline; full text shows on /journey.
 export const JOURNEY: JourneyStep[] = [
-  { year: "2022", title: "Exploring, still figuring it out.", text: "Exploring. I was still figuring out where I fit in Computer Science." },
-  { year: "2023", title: "Struggling, but catching up.", text: "I struggled, but I kept trying to catch up." },
-  { year: "2024", title: "Started coding, still afraid.", text: "I started programming and developing. I was still afraid to try, but my group and I finished our Software Engineering project." },
-  { year: "2025", title: "Me versus me, and an OJT I finished.", text: "Programming became a must, and it was really just me versus me. I was very scared to try things during my OJT, but I finished it, and it still felt like something was missing." },
-  { year: "2025–26", title: "Thesis days: scrum, Jira, sprints.", text: "In 4th year I wasn't sure I could keep up. First semester was mostly documentation, though I kept developing. In the second semester I was programming for our thesis almost every day. We held a scrum every weekday from 9 to 10 PM, tracked tasks in Jira, and ran around 15 sprints over the whole thesis." },
-  { year: "2026", title: "Graduated, applying, still upskilling.", text: "I graduated on April 27, 2026 and started applying online everywhere. Meanwhile I kept upskilling, building projects, and practicing so I wouldn't fall behind. I want to become a full-stack developer or engineer, and a software engineer if things work out, and I keep putting in the work." },
+  { year: "2022", title: "Exploring my interests and discovering my direction.", text: "Exploring my interests and discovering my direction." },
+  { year: "2023", title: "Building my foundations and learning through challenges.", text: "Building my foundations and learning through challenges." },
+  { year: "2024", title: "Started coding and turned curiosity into action.", text: "Started coding and turned curiosity into action." },
+  { year: "2025", title: "Completed my Full-Stack Developer OJT and collaborated on my thesis using Scrum and Jira.", text: "Completed my Full-Stack Developer OJT and collaborated on my thesis using Scrum and Jira." },
+  { year: "2026", title: "Graduated, gaining experience through projects, and pursuing software engineering opportunities.", text: "Graduated, gaining experience through projects, and pursuing software engineering opportunities." },
 ];
 
 // The About card links here; the label is the text shown above the card title
