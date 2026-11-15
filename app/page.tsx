@@ -61,7 +61,7 @@ export default function Home() {
             <h1 className="hero-title"><span className="iam">I am</span><span className="name">Mcdal</span></h1>
             <p>Aspiring Software Engineer &amp; Full-Stack Developer building scalable web and mobile applications&mdash;from database and API to polished UI.</p>
             <div className="hero-actions">
-              <Link href="/#projects" className="btn solid"><FolderIcon />View projects</Link>
+              <Link href="/#projects" className="btn solid"><FolderIcon />View Projects</Link>
               {/* Versioned filename (see RESUME_URL in lib/data.ts) so phones never serve a cached old resume */}
               <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="btn"><FileIcon />Open Resume</a>
             </div>
