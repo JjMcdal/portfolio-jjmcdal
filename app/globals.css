@@ -138,7 +138,7 @@ section{padding:0}
 
 .sec-head{text-align:center;margin-bottom:3.5rem}
 
-.eyebrow{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:.8rem;font-style:italic;letter-spacing:.08em;color:var(--muted)}
 
 .sec-title{font-family:var(--sans);font-size:clamp(1.875rem,3.5vw,2.5rem);font-weight:700;line-height:1.1;margin-top:.4rem}
 
