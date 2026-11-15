@@ -40,7 +40,9 @@ section{padding:0}
 
 /* Nav: full-width at top, compact pill after scroll */
 
-.nav{position:fixed;top:0;left:0;z-index:100;display:flex;align-items:center;gap:1.75rem;width:100%;padding:1.1rem 3rem;background:transparent;border:1px solid transparent;border-radius:0;transform:scale(.98);transform-origin:top center;will-change:transform,top,left,width,padding,background,border-color,border-radius,box-shadow;transition:top .3s,left .3s,width .3s,padding .3s,background .3s,border-color .3s,border-radius .3s,box-shadow .3s,transform .3s ease-in-out}
+.nav{position:fixed;top:0;left:0;z-index:100;display:flex;align-items:center;gap:1.75rem;width:100%;padding:1.1rem 3rem;background:transparent;border:1px solid transparent;border-radius:0;transform:scale(.98);transform-origin:top center;font-style:italic;will-change:transform,top,left,width,padding,background,border-color,border-radius,box-shadow;transition:top .3s,left .3s,width .3s,padding .3s,background .3s,border-color .3s,border-radius .3s,box-shadow .3s,transform .3s ease-in-out}
+
+.nav *{font-style:italic}
 
 .nav.pill{top:1rem;left:50%;width:fit-content;max-width:calc(100% - 1.5rem);padding:.6rem 1.25rem;background:var(--nav-bg);backdrop-filter:blur(12px);border-color:var(--border);border-radius:999px;box-shadow:var(--shadow);transform:translateX(-50%) scale(1)}
 
