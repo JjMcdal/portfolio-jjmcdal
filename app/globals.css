@@ -121,7 +121,8 @@ section{padding:0}
 
 .built-row{display:flex;width:max-content;animation:scroll-loop 24s linear infinite;will-change:transform}
 
-.built-set{display:flex;flex:none;justify-content:space-around;gap:1rem;width:calc(100vw + 2rem);padding:0 1rem}
+/* after: set grows to fit its cards, but is never narrower than the screen */
+.built-set{display:flex;flex:none;justify-content:space-around;gap:1rem;width:max-content;min-width:calc(100vw + 2rem);padding:0 1rem}
 
 .built-row:hover{animation-play-state:paused}
 
