@@ -716,6 +716,39 @@ footer{padding:3.5rem 0}
 
 .journey-primary:active{transform:translateY(0) scale(.98);box-shadow:0 3px 12px color-mix(in srgb,var(--journey-accent) 35%,transparent)}
 
+/* Fast black intro before the detailed story */
+.journey-boom{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:#000;color:#fff;animation:journey-boom-out .85s cubic-bezier(.76,0,.24,1) forwards}
+
+.journey-boom span{font-size:clamp(8rem,32vw,30rem);font-weight:700;letter-spacing:-.08em;line-height:.8;animation:journey-year-boom .85s cubic-bezier(.16,1,.3,1) forwards}
+
+@keyframes journey-year-boom{0%{opacity:0;transform:scale(.35)}35%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1.08)}}
+
+@keyframes journey-boom-out{0%,65%{opacity:1}100%{opacity:0;visibility:hidden}}
+
+.journey-detail{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);gap:clamp(3rem,9vw,9rem);min-height:100svh;padding:8rem 0 6rem;scroll-margin-top:1rem;background:var(--bg);color:var(--text)}
+
+.journey-detail-side{position:sticky;top:7rem;align-self:start}
+
+.journey-detail-year{font-size:clamp(5rem,12vw,10rem);font-weight:700;letter-spacing:-.07em;line-height:.8}
+
+.journey-detail-kicker{margin-top:2rem;color:var(--muted);font-size:1rem}
+
+.journey-years{display:grid;gap:.45rem;margin-top:2rem;width:max-content}
+
+.journey-years button{position:relative;padding:.15rem 0 .15rem 2rem;border:0;background:none;color:var(--muted);font:700 1rem var(--sans);text-align:left;cursor:pointer}
+
+.journey-years button.active{color:var(--text)}
+
+.journey-years button.active::before{content:"";position:absolute;left:0;top:50%;width:1.2rem;height:3px;background:var(--solid);transform:translateY(-50%)}
+
+.journey-detail-content{align-self:center;max-width:48rem}
+
+.journey-detail-label{font-family:var(--mono);font-size:.85rem;letter-spacing:.1em;color:var(--muted)}
+
+.journey-detail-content h2{margin:.8rem 0 1.5rem;font-size:clamp(2rem,4vw,4rem);line-height:1.02;letter-spacing:-.04em}
+
+.journey-detail-content>p:last-child{max-width:38rem;color:var(--muted);font-size:clamp(1rem,1.8vw,1.25rem);line-height:1.6}
+
 /* Desktop: portrait shrinks with the viewport height so the whole hero fits without scrolling */
 
 @media(min-width:861px){
@@ -805,6 +838,20 @@ footer{padding:3.5rem 0}
 
   .journey-portrait{justify-self:start;width:min(100%,22rem)}
 
+  .journey-detail{grid-template-columns:1fr;gap:3rem;min-height:auto;padding:5rem 0 6rem}
+
+  .journey-detail-side{position:static}
+
+  .journey-detail-year{font-size:clamp(5rem,24vw,9rem)}
+
+  .journey-years{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;width:100%;margin-top:1.5rem}
+
+  .journey-years button{padding-left:0}
+
+  .journey-years button.active::before{display:none}
+
+  .journey-detail-content{align-self:start}
+
   .timeline-placeholder{grid-template-columns:1fr 1fr}
 
   .timeline-placeholder-item:nth-child(2n){border-right:0}
@@ -892,7 +939,7 @@ footer{padding:3.5rem 0}
 
 }
 
-@media(prefers-reduced-motion:reduce){.built-row{animation:none}html{scroll-behavior:auto}*{transition:none!important}.journey-btn:hover,.journey-btn:active,.journey-btn:hover .icon,.journey-btn:focus-visible .icon,.journey-primary:hover,.journey-primary:active{transform:none}}
+@media(prefers-reduced-motion:reduce){.built-row,.journey-boom,.journey-boom span{animation:none}html{scroll-behavior:auto}*{transition:none!important}.journey-btn:hover,.journey-btn:active,.journey-btn:hover .icon,.journey-btn:focus-visible .icon,.journey-primary:hover,.journey-primary:active{transform:none}}
 
 /* Nav logo: text wordmark, italic and light so it matches the nav links */
 .nav-logo{font-style:italic;font-weight:400;font-size:.95rem}
