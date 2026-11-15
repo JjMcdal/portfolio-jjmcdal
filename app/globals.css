@@ -607,7 +607,8 @@ footer{padding:3.5rem 0}
 
 .lead{font-size:1.15rem;color:var(--muted);max-width:700px;margin-bottom:2rem}
 
-.detail-hero{height:240px;border:1px solid var(--border);border-radius:16px;font-size:2.4rem}
+/* after: same look as the card thumbnail, but sized for the detail page */
+.detail-hero{display:flex;align-items:center;justify-content:center;height:240px;padding:1rem;border:1px solid var(--border);border-radius:16px;background-color:var(--chip);background-image:radial-gradient(var(--dot) 1px,transparent 1px);background-size:16px 16px;font-family:var(--hand);font-size:2.4rem;font-weight:700;line-height:1.15;text-align:center}
 
 .detail-grid{display:grid;grid-template-columns:2fr 1fr;gap:3rem;margin-top:2.5rem}
 

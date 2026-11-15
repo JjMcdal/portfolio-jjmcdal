@@ -12,7 +12,8 @@ const themeScript = `try{var t=localStorage.getItem('theme');if(!t)t=matchMedia(
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    // data-scroll-behavior tells Next.js the page uses smooth scrolling, so route transitions can handle it properly
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

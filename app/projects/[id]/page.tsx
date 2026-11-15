@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Chrome from "@/components/Chrome";
@@ -14,38 +15,54 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return { title: p ? `${p.title} | Jj Mcdal Nabong` : "Project" };
 }
 
-export default async function ProjectPage({ params }: Props) {
+// The params read lives in this child, so it can sit inside <Suspense>
+async function ProjectDetails({ params }: Props) {
   const { id } = await params;
   const p = PROJECTS.find((x) => x.id === id);
   if (!p) notFound();
   return (
+    <div id="detail"><div className="wrap">
+      <Link href="/#projects" className="back">&larr; Back to projects</Link>
+      <p className="eyebrow">{p.subtitle}</p>
+      <h1>{p.title}</h1>
+      <p className="lead">{p.short}</p>
+      <div className="thumb-box detail-hero">{p.title}</div>
+      <div className="detail-grid">
+        <div>
+          <h2>Highlights</h2>
+          <ul>{p.highlights.map((h) => <li key={h}>{h}</li>)}</ul>
+          {p.note && <p className="note">{p.note}</p>}
+        </div>
+        {/* Links sit outside the dl because an <a> is not valid as a direct child of <dl> */}
+        <aside className="side">
+          <dl className="side-box">
+            <div><dt>Role</dt><dd>{p.role}</dd></div>
+            <div><dt>Period</dt><dd>{p.period}</dd></div>
+            <div><dt>Built with</dt><dd className="chips">{p.tech.map((t) => <span className="chip" key={t}>{t}</span>)}</dd></div>
+          </dl>
+          {p.links.map((l) => (
+            <a className="btn solid" key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
+          ))}
+        </aside>
+      </div>
+    </div></div>
+  );
+}
+
+export default function ProjectPage({ params }: Props) {
+  return (
     <>
       <Chrome />
-      <div id="detail"><div className="wrap">
-        <Link href="/#projects" className="back">&larr; Back to projects</Link>
-        <p className="eyebrow">{p.subtitle}</p>
-        <h1>{p.title}</h1>
-        <p className="lead">{p.short}</p>
-        <div className="thumb-box detail-hero">{p.title}</div>
-        <div className="detail-grid">
-          <div>
-            <h2>Highlights</h2>
-            <ul>{p.highlights.map((h) => <li key={h}>{h}</li>)}</ul>
-            {p.note && <p className="note">{p.note}</p>}
-          </div>
-          {/* Links sit outside the dl because an <a> is not valid as a direct child of <dl> */}
-          <aside className="side">
-            <dl className="side-box">
-              <div><dt>Role</dt><dd>{p.role}</dd></div>
-              <div><dt>Period</dt><dd>{p.period}</dd></div>
-              <div><dt>Built with</dt><dd className="chips">{p.tech.map((t) => <span className="chip" key={t}>{t}</span>)}</dd></div>
-            </dl>
-            {p.links.map((l) => (
-              <a className="btn solid" key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
-            ))}
-          </aside>
-        </div>
-      </div></div>
+      {/* The fallback keeps the page frame, so the layout doesn't jump when the content streams in */}
+      <Suspense
+        fallback={
+          <div id="detail"><div className="wrap">
+            <Link href="/#projects" className="back">&larr; Back to projects</Link>
+          </div></div>
+        }
+      >
+        <ProjectDetails params={params} />
+      </Suspense>
     </>
   );
 }
