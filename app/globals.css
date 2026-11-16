@@ -166,7 +166,7 @@ section{padding:0}
 
 .journey-heading{margin-top:clamp(4.5rem,10vw,8rem);margin-bottom:3rem;max-width:42rem}
 
-.journey-eyebrow{display:flex;align-items:center;gap:.55rem;color:var(--muted);font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.12em;margin-bottom:1.25rem}
+.journey-eyebrow{display:flex;align-items:center;gap:.55rem;color:var(--muted);font-family:var(--mono);font-size:.8rem;font-weight:700;font-style:italic;letter-spacing:.12em;margin-bottom:1.25rem}
 
 .journey-eyebrow span{width:9px;height:9px;border-radius:50%;background:var(--muted);box-shadow:0 0 0 4px color-mix(in srgb,var(--muted) 15%,transparent);flex:none}
 
@@ -238,7 +238,7 @@ section{padding:0}
 
 .exp-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:4rem}
 
-.col-label{font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:1.5rem}
+.col-label{font-family:var(--mono);font-size:.8rem;font-style:italic;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:1.5rem}
 
 .entry{display:flex;gap:1.25rem;margin-bottom:2.5rem}
 
