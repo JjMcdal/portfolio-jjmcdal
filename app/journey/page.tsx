@@ -66,7 +66,7 @@ export default function JourneyPage() {
       </main>
       {started ? (
         <div className="journey-boom" role="status" aria-label="Starting journey">
-          <span>2022</span>
+          <span>2022-2026</span>
         </div>
       ) : null}
     </>

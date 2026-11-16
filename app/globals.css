@@ -719,7 +719,7 @@ footer{padding:3.5rem 0}
 /* Fast black intro before the detailed story */
 .journey-boom{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:#000;color:#fff;animation:journey-boom-out .85s cubic-bezier(.76,0,.24,1) forwards}
 
-.journey-boom span{font-size:clamp(8rem,32vw,30rem);font-weight:700;letter-spacing:-.08em;line-height:.8;animation:journey-year-boom .85s cubic-bezier(.16,1,.3,1) forwards}
+.journey-boom span{font-size:clamp(4rem,14vw,12rem);font-weight:700;letter-spacing:-.04em;line-height:.8;animation:journey-year-boom .85s cubic-bezier(.16,1,.3,1) forwards}
 
 @keyframes journey-year-boom{0%{opacity:0;transform:scale(.35)}35%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1.08)}}
 
