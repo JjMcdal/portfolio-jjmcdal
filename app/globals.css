@@ -117,7 +117,7 @@ section{padding:0}
 
 .marquee-sec{padding:3.5rem 0;background:var(--chip);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 
-.marquee-label{text-align:center;font-size:.8rem;letter-spacing:.2em;color:var(--muted);margin-bottom:1.5rem;text-transform:uppercase}
+.marquee-label{text-align:center;font-size:.8rem;font-style:italic;letter-spacing:.2em;color:var(--muted);margin-bottom:1.5rem;text-transform:uppercase}
 
 .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 
