@@ -69,6 +69,7 @@ export const STACK: StackItem[] = [
   { name: "PostgreSQL", slug: "postgresql", cat: "Database & Cloud", color: "#4169E1" },
   { name: "Postman", slug: "postman", cat: "Tools", color: "#FF6C37" },
   { name: "React", slug: "react", cat: "Frontend", color: "#61DAFB" },
+  { name: "React Native", slug: "react", cat: "Mobile", color: "#61DAFB" },
   { name: "Redis", slug: "redis", cat: "Database & Cloud", color: "#FF4438" },
   { name: "Supabase", slug: "supabase", cat: "Database & Cloud", color: "#3FCF8E" },
   { name: "Tailwind CSS", slug: "tailwindcss", cat: "Frontend", color: "#06B6D4" },
