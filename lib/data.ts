@@ -92,7 +92,7 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "rcv", title: "RCV System", subtitle: "Regulatory Compliance Verification",
+    id: "rcv", title: "Blockchain RCV System", subtitle: "Regulatory Compliance Verification",
     short: "Web3-enabled compliance platform for the Bureau of Animal Industry, with Ethereum blockchain integration and PostgreSQL.",
     period: "Aug 2025 – Feb 2026", role: "Full Stack Developer · Documentation Lead",
     tech: ["React", "Vite", "TypeScript", "Node.js", "Express", "PostgreSQL", "Redis", "ethers.js", "Firebase Auth"],
@@ -108,7 +108,7 @@ export const PROJECTS: Project[] = [
     visit: "https://rcv-steel.vercel.app",
     labels: ["Web3", "Compliance"],
     image: "/projects/rcv-pic.png",
-    imageFit: "cover",
+    imageFit: "contain",
     note: "The deployed site is a frontend demo. The backend is currently offline, so login will not work.",
   },
   {
