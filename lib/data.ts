@@ -108,7 +108,6 @@ export const PROJECTS: Project[] = [
     visit: "https://rcv-steel.vercel.app",
     labels: ["Web3", "Compliance"],
     image: "/projects/rcv-pic.png",
-    imageFit: "contain",
     note: "The deployed site is a frontend demo. The backend is currently offline, so login will not work.",
   },
   {
@@ -141,7 +140,6 @@ export const PROJECTS: Project[] = [
     visit: "https://circuitcube.netlify.app",
     labels: ["Education", "3D Simulation"],
     image: "/projects/circuit-cube-pic.png",
-    imageFit: "contain",
   },
   {
     id: "pandayo-coffee", title: "Pandayo Coffee", subtitle: "POS and inventory system",
@@ -159,7 +157,6 @@ export const PROJECTS: Project[] = [
     visit: "https://pandayo-coffee.vercel.app/",
     labels: ["POS", "In Progress"],
     image: "/projects/pandayo-coffee-pic.png",
-    imageFit: "contain",
     note: "Still being built. Progress is pushed to GitHub regularly.",
   },
 ];

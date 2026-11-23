@@ -392,15 +392,22 @@ section{padding:0}
   background: var(--chip);
 }
 
+/* Screenshots fill the whole media box, no padding */
 .card-media img {
   display: block;
   object-fit: cover;
   object-position: center;
 }
 
+/* Logos (imageFit: "contain"): no padding, so the logo uses the full box */
 .card-media img.contain {
   object-fit: contain;
-  padding: 1rem;
+  padding: 0;
+}
+
+/* White backdrop behind logos so the box still looks filled */
+.card-media:has(img.contain) {
+  background: #fff;
 }
 
 .card > .thumb-box {
