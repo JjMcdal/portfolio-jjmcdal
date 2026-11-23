@@ -123,6 +123,8 @@ export const PROJECTS: Project[] = [
     ],
     labels: ["Government", "Inventory System"],
     links: [], note: "Internal government system, so there is no public demo.",
+    image: "/images/sdo-ims.jpg",
+    imageFit: "contain",
   },
   {
     id: "circuit-cube", title: "Circuit Cube", subtitle: "3D breadboarding learning platform",
