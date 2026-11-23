@@ -385,7 +385,7 @@ section{padding:0}
 .card > .thumb-box {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 7 / 3;
   flex: none;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
