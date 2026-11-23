@@ -139,7 +139,7 @@ export const PROJECTS: Project[] = [
     visit: "https://circuitcube.netlify.app",
     labels: ["Education", "3D Simulation"],
     image: "/projects/circuit-cube-pic.png",
-    imageFit: "cover",
+    imageFit: "contain",
   },
   {
     id: "pandayo-coffee", title: "Pandayo Coffee", subtitle: "POS and inventory system",
@@ -157,7 +157,7 @@ export const PROJECTS: Project[] = [
     visit: "https://pandayo-coffee.vercel.app/",
     labels: ["POS", "In Progress"],
     image: "/projects/pandayo-coffee-pic.png",
-    imageFit: "cover",
+    imageFit: "contain",
     note: "Still being built. Progress is pushed to GitHub regularly.",
   },
 ];
