@@ -5,21 +5,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { PROJECTS } from "@/lib/data";
 
-const TAGS = [
-  "All",
+// Preferred order of the filter pills. Add new tags here; a pill only shows
+// when at least one project in lib/data.ts has that tag, so no filter is ever empty.
+const TAG_ORDER = [
   "Web App",
   "Full-Stack",
   "React",
+  "React Native",
   "Next.js 16",
   "TypeScript",
   "JavaScript",
+  "PHP",
   "Node.js",
   "Express.js",
   "PostgreSQL",
+  "MySQL",
   "Supabase",
+  "Firebase",
+  "Redis",
   "Tailwind CSS",
   "shadcn/ui",
   "Vite",
+  "Flutter",
+  "Docker",
   "Web3 / Ethereum",
   "GitHub Actions",
   "Postman",
@@ -28,6 +36,15 @@ const TAGS = [
   "3D Simulation",
   "Inventory System",
   "Dashboard",
+];
+
+const usedTags = new Set(PROJECTS.flatMap((project) => project.tags));
+
+// Tags used by projects but missing from TAG_ORDER go at the end, so nothing is hidden by mistake.
+const TAGS = [
+  "All",
+  ...TAG_ORDER.filter((tag) => usedTags.has(tag)),
+  ...[...usedTags].filter((tag) => !TAG_ORDER.includes(tag)),
 ];
 
 function ArrowIcon() {
