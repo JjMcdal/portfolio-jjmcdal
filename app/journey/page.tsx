@@ -8,14 +8,16 @@ export default function JourneyPage() {
   const [started, setStarted] = useState(false);
   const [journeyReady, setJourneyReady] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const story = useRef<HTMLElement>(null);
   const steps = useRef<(HTMLElement | null)[]>([]);
   const activeStep = JOURNEY[activeIndex];
 
-  // Lock scroll only while the black intro animation is playing
+  // Page stays locked on the hero until Get Started is pressed and the intro finishes.
+  // After that it unlocks for good, so the hero is still reachable by scrolling up.
   useEffect(() => {
-    document.body.style.overflow = started && !journeyReady ? "hidden" : "";
+    document.body.style.overflow = journeyReady ? "" : "hidden";
     return () => { document.body.style.overflow = ""; };
-  }, [started, journeyReady]);
+  }, [journeyReady]);
 
   // Scroll-spy: the story crossing the middle of the screen becomes the active year
   useEffect(() => {
@@ -37,75 +39,78 @@ export default function JourneyPage() {
   const startJourney = () => {
     if (started) return;
     setStarted(true);
-    // Swap to the story view while the black overlay covers the screen
+    // Jump to the story while the black overlay covers the screen. The hero stays above it.
     window.setTimeout(() => {
       setActiveIndex(0);
       setJourneyReady(true);
-      window.scrollTo({ top: 0, behavior: "instant" });
+      const top = (story.current?.getBoundingClientRect().top ?? 0) + window.scrollY;
+      window.scrollTo({ top, behavior: "instant" });
     }, 850);
   };
 
   const jumpTo = (index: number) => {
-    steps.current[index]?.scrollIntoView({ behavior: "smooth", block: "center" });
+    const el = steps.current[index];
+    if (!el) return;
+    // scrollIntoView adds the 6rem scroll-padding-top from globals.css, which pushes the first year down
+    // and reveals the hero above it. Compute the exact position instead, so the step is centered.
+    const rect = el.getBoundingClientRect();
+    const top = rect.top + window.scrollY + rect.height / 2 - window.innerHeight / 2;
+    window.scrollTo({ top, behavior: "smooth" });
   };
 
   return (
     <>
       <Chrome variant="journey" />
       <main className="journey-page">
-        {!journeyReady && (
-          <section className="journey-hero">
-            <div className="wrap journey-hero-grid">
-              <div className="journey-hero-copy">
-                <Link href="/#about" className="back">&larr; Back to about</Link>
-                <p className="eyebrow">JOURNEY</p>
-                <h1>MY PATH TO BECOMING A DEVELOPER</h1>
-                <p className="lead">A story about learning in public, finding my footing, and building systems that help real people do meaningful work.</p>
-                <button type="button" onClick={startJourney} className="journey-primary">Get Started <span aria-hidden="true">&rarr;</span></button>
-              </div>
-              <figure className="journey-portrait">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/pogi.jpg" alt="Jj Mcdal Nabong working on a laptop" width={520} height={640} />
-                <figcaption>Jj Mcdal Nabong, developer and lifelong learner.</figcaption>
-              </figure>
+        <section className="journey-hero">
+          <div className="wrap journey-hero-grid">
+            <div className="journey-hero-copy">
+              <Link href="/#about" className="back">&larr; Back to about</Link>
+              <p className="eyebrow">JOURNEY</p>
+              <h1>MY PATH TO BECOMING A DEVELOPER</h1>
+              <p className="lead">A story about learning in public, finding my footing, and building systems that help real people do meaningful work.</p>
+              <button type="button" onClick={startJourney} className="journey-primary">Get Started <span aria-hidden="true">&rarr;</span></button>
             </div>
-          </section>
-        )}
+            <figure className="journey-portrait">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/pogi.jpg" alt="Jj Mcdal Nabong working on a laptop" width={520} height={640} />
+              <figcaption>Jj Mcdal Nabong, developer and lifelong learner.</figcaption>
+            </figure>
+          </div>
+        </section>
 
-        {journeyReady && (
-          <section id="story" className="journey-detail wrap" aria-label="Developer journey story">
-            <aside className="journey-detail-side">
-              <p className="journey-detail-year">{activeStep.year}</p>
-              <p className="journey-detail-kicker">Where it started</p>
-              <nav className="journey-years" aria-label="Journey years">
-                {JOURNEY.map((step, index) => (
-                  <button
-                    type="button"
-                    className={index === activeIndex ? "active" : ""}
-                    aria-current={index === activeIndex ? "true" : undefined}
-                    key={step.year}
-                    onClick={() => jumpTo(index)}
-                  >
-                    {step.year}
-                  </button>
-                ))}
-              </nav>
-            </aside>
-            <div className="journey-detail-stories">
+        <section id="story" ref={story} className="journey-detail wrap" aria-label="Developer journey story">
+          <aside className="journey-detail-side">
+            <p className="journey-detail-year">{activeStep.year}</p>
+            <p className="journey-detail-kicker">Where it started</p>
+            <nav className="journey-years" aria-label="Journey years">
               {JOURNEY.map((step, index) => (
-                <article
-                  className="journey-step"
+                <button
+                  type="button"
+                  className={index === activeIndex ? "active" : ""}
+                  aria-current={index === activeIndex ? "true" : undefined}
                   key={step.year}
-                  data-index={index}
-                  ref={(el) => { steps.current[index] = el; }}
+                  onClick={() => jumpTo(index)}
                 >
-                  <h2>{step.title}</h2>
-                  <p>{step.text}</p>
-                </article>
+                  {step.year}
+                </button>
               ))}
-            </div>
-          </section>
-        )}
+            </nav>
+          </aside>
+          <div className="journey-detail-stories">
+            {JOURNEY.map((step, index) => (
+              <article
+                className="journey-step"
+                key={step.year}
+                data-index={index}
+                ref={(el) => { steps.current[index] = el; }}
+              >
+                <h2>{step.title}</h2>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
       </main>
       {started ? (
         <div className="journey-boom" role="status" aria-label="Starting journey">
