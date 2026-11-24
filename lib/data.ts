@@ -69,7 +69,6 @@ export const STACK: StackItem[] = [
   { name: "PostgreSQL", slug: "postgresql", cat: "Database & Cloud", color: "#4169E1" },
   { name: "Postman", slug: "postman", cat: "Tools", color: "#FF6C37" },
   { name: "React", slug: "react", cat: "Frontend", color: "#61DAFB" },
-  { name: "React Native", slug: "react", cat: "Mobile", color: "#61DAFB" },
   { name: "Redis", slug: "redis", cat: "Database & Cloud", color: "#FF4438" },
   { name: "Supabase", slug: "supabase", cat: "Database & Cloud", color: "#3FCF8E" },
   { name: "Tailwind CSS", slug: "tailwindcss", cat: "Frontend", color: "#06B6D4" },
@@ -92,7 +91,7 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "rcv", title: "Blockchain RCV System", subtitle: "Regulatory Compliance Verification",
+    id: "rcv", title: "RCV System", subtitle: "Regulatory Compliance Verification",
     short: "Web3-enabled compliance platform for the Bureau of Animal Industry, with Ethereum blockchain integration and PostgreSQL.",
     period: "Aug 2025 – Feb 2026", role: "Full Stack Developer · Documentation Lead",
     tech: ["React", "Vite", "TypeScript", "Node.js", "Express", "PostgreSQL", "Redis", "ethers.js", "Firebase Auth"],
@@ -108,6 +107,7 @@ export const PROJECTS: Project[] = [
     visit: "https://rcv-steel.vercel.app",
     labels: ["Web3", "Compliance"],
     image: "/projects/rcv-pic.png",
+    imageFit: "cover",
     note: "The deployed site is a frontend demo. The backend is currently offline, so login will not work.",
   },
   {
@@ -122,8 +122,6 @@ export const PROJECTS: Project[] = [
     ],
     labels: ["Government", "Inventory System"],
     links: [], note: "Internal government system, so there is no public demo.",
-    image: "/images/sdo-ims.jpg",
-    imageFit: "contain",
   },
   {
     id: "circuit-cube", title: "Circuit Cube", subtitle: "3D breadboarding learning platform",
@@ -140,6 +138,7 @@ export const PROJECTS: Project[] = [
     visit: "https://circuitcube.netlify.app",
     labels: ["Education", "3D Simulation"],
     image: "/projects/circuit-cube-pic.png",
+    imageFit: "cover",
   },
   {
     id: "pandayo-coffee", title: "Pandayo Coffee", subtitle: "POS and inventory system",
@@ -157,6 +156,7 @@ export const PROJECTS: Project[] = [
     visit: "https://pandayo-coffee.vercel.app/",
     labels: ["POS", "In Progress"],
     image: "/projects/pandayo-coffee-pic.png",
+    imageFit: "cover",
     note: "Still being built. Progress is pushed to GitHub regularly.",
   },
 ];
@@ -165,11 +165,11 @@ export type JourneyStep = { year: string; title: string; text: string };
 
 // Short title shows in the About card timeline; full text shows on /journey.
 export const JOURNEY: JourneyStep[] = [
-  { year: "2022", title: "Exploring my interests and discovering my direction.", text: "Exploring my interests and discovering my direction." },
-  { year: "2023", title: "Building my foundations and learning through challenges.", text: "Building my foundations and learning through challenges." },
-  { year: "2024", title: "Started coding and turned curiosity into action.", text: "Started coding and turned curiosity into action." },
-  { year: "2025", title: "Completed my Full-Stack Developer OJT and collaborated on my thesis using Scrum and Jira.", text: "Completed my Full-Stack Developer OJT and collaborated on my thesis using Scrum and Jira." },
-  { year: "2026", title: "Graduated, gaining experience through projects, and pursuing software engineering opportunities.", text: "Graduated, gaining experience through projects, and pursuing software engineering opportunities." },
+  { year: "2022", title: "Figuring out where I fit in Tech.", text: "Figuring out where I fit in Tech." },
+  { year: "2023", title: "Learning the basics and pushing through tough lessons.", text: "Learning the basics and pushing through tough lessons." },
+  { year: "2024", title: "Writing real code instead of just reading about it.", text: "Writing real code instead of just reading about it." },
+  { year: "2025", title: "Real-world OJT, Scrum teamwork, and Thesis milestones.", text: "Real-world OJT, Scrum teamwork, and Thesis milestones." },
+  { year: "2026", title: "CS graduate building projects and chasing my first dev role.", text: "CS graduate building projects and chasing my first dev role." },
 ];
 
 // The About card links here; the label is the text shown above the card title
