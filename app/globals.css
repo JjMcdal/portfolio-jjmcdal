@@ -732,11 +732,14 @@ footer{padding:3.5rem 0}
 
 @keyframes journey-boom-out{0%,65%{opacity:1}100%{opacity:0;visibility:hidden}}
 
-.journey-detail{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);gap:clamp(3rem,9vw,9rem);min-height:100svh;padding:8rem 0 6rem;scroll-margin-top:1rem;background:var(--bg);color:var(--text)}
+/* Story view: one continuous scroll. The left column stays pinned while the years scroll on the right. */
 
-.journey-detail-side{position:sticky;top:7rem;align-self:start}
+.journey-detail{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);gap:clamp(2rem,6vw,6rem);background:var(--bg);color:var(--text)}
 
-.journey-detail-year{font-size:clamp(5rem,12vw,10rem);font-weight:700;letter-spacing:-.07em;line-height:.8}
+/* Sticky column, as tall as the screen, so the year stays centered while the stories scroll */
+.journey-detail-side{position:sticky;top:0;height:100svh;align-self:start;display:flex;flex-direction:column;justify-content:center}
+
+.journey-detail-year{font-size:clamp(4.5rem,9vw,8rem);font-weight:700;letter-spacing:-.07em;line-height:.8}
 
 .journey-detail-kicker{margin-top:2rem;color:var(--muted);font-size:1rem}
 
@@ -748,13 +751,12 @@ footer{padding:3.5rem 0}
 
 .journey-years button.active::before{content:"";position:absolute;left:0;top:50%;width:1.2rem;height:3px;background:var(--solid);transform:translateY(-50%)}
 
-.journey-detail-content{align-self:center;max-width:48rem}
+/* One full screen per year, so the active year switches cleanly while scrolling */
+.journey-step{min-height:100svh;display:flex;flex-direction:column;justify-content:center;max-width:48rem}
 
-.journey-detail-label{font-family:var(--mono);font-size:.85rem;letter-spacing:.1em;color:var(--muted)}
+.journey-step h2{margin:0 0 1.5rem;font-size:clamp(2rem,4vw,4rem);line-height:1.02;letter-spacing:-.04em}
 
-.journey-detail-content h2{margin:.8rem 0 1.5rem;font-size:clamp(2rem,4vw,4rem);line-height:1.02;letter-spacing:-.04em}
-
-.journey-detail-content>p:last-child{max-width:38rem;color:var(--muted);font-size:clamp(1rem,1.8vw,1.25rem);line-height:1.6}
+.journey-step p{max-width:38rem;color:var(--muted);font-size:clamp(1rem,1.8vw,1.25rem);line-height:1.6}
 
 /* Desktop: portrait shrinks with the viewport height so the whole hero fits without scrolling */
 
@@ -845,19 +847,22 @@ footer{padding:3.5rem 0}
 
   .journey-portrait{justify-self:start;width:min(100%,22rem)}
 
-  .journey-detail{grid-template-columns:1fr;gap:3rem;min-height:auto;padding:5rem 0 6rem}
+  /* block, not grid, so the sticky year header can stay pinned for the whole story */
+  .journey-detail{display:block}
 
-  .journey-detail-side{position:static}
+  .journey-detail-side{top:4.5rem;height:auto;padding:1rem 0;background:var(--bg);z-index:5;justify-content:flex-start}
 
-  .journey-detail-year{font-size:clamp(5rem,24vw,9rem)}
+  .journey-detail-year{font-size:clamp(3.5rem,18vw,6rem)}
 
-  .journey-years{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;width:100%;margin-top:1.5rem}
+  .journey-detail-kicker{display:none}
+
+  .journey-years{display:flex;flex-wrap:wrap;gap:.4rem 1rem;width:100%;margin-top:.75rem}
 
   .journey-years button{padding-left:0}
 
   .journey-years button.active::before{display:none}
 
-  .journey-detail-content{align-self:start}
+  .journey-step{min-height:80svh}
 
   .timeline-placeholder{grid-template-columns:1fr 1fr}
 
