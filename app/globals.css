@@ -659,6 +659,16 @@ footer{padding:3.5rem 0}
 
 .journey-facebook-icon{width:1.1rem;height:1.1rem}
 
+/* Journey nav: the wrapper is invisible on desktop and becomes the dropdown on mobile */
+
+.journey-menu{display:contents}
+
+.menu-btn{display:none;align-items:center;justify-content:center;width:2rem;height:2rem;padding:0;border:0;background:none;color:var(--text)}
+
+.menu-btn svg{width:22px;height:22px}
+
+.journey-facebook-label{display:none}
+
 
 
 /* Journey page */
@@ -808,15 +818,27 @@ footer{padding:3.5rem 0}
 
   .nav-logo{display:block;flex:none;max-width:7rem;margin:0;font-size:1rem}
 
-  .journey-nav,.nav.journey-nav.pill{left:0;width:100%;gap:.7rem;padding-left:1rem;padding-right:1rem;transform:none}
+  /* Side padding matches .wrap (2rem), so the name lines up with "Back to about" and the hero text */
+  .journey-nav,.nav.journey-nav.pill{left:0;width:100%;gap:.7rem;padding-left:2rem;padding-right:2rem;transform:none}
 
-  .journey-brand{font-size:.9rem}
+  /* Journey nav (mobile): only the name, theme toggle, and hamburger stay visible */
 
-  .journey-nav-links{gap:1rem;margin-left:auto;overflow-x:visible}
+  .journey-brand{margin-right:auto;font-size:.95rem}
 
-  .journey-nav-links a{font-size:.78rem}
+  /* The negative margin cancels the empty space inside the button, so the icon touches the right content edge */
+  .menu-btn{display:flex;flex:none;order:3;margin-right:-.3rem}
 
-  .journey-facebook{margin-left:0}
+  .journey-menu{display:none;position:absolute;top:calc(100% + .5rem);left:.75rem;right:.75rem;flex-direction:column;padding:.4rem;border:1px solid var(--border);border-radius:16px;background:var(--card);box-shadow:var(--shadow)}
+
+  .journey-menu.open{display:flex}
+
+  .journey-menu .journey-nav-links{flex:none;flex-direction:column;gap:0;margin:0;overflow:visible}
+
+  .journey-menu .journey-nav-links a{align-items:flex-start;padding:.7rem .75rem;border-radius:10px;font-size:.95rem}
+
+  .journey-facebook{width:auto;height:auto;justify-content:flex-start;gap:.6rem;margin:.2rem 0 0;padding:.7rem .75rem;border-top:1px solid var(--border);font-size:.95rem}
+
+  .journey-facebook-label{display:inline}
 
   .nav-links{display:flex;flex:1;min-width:0;gap:1rem;margin:0;overflow-x:auto;scrollbar-width:none}
 
@@ -937,9 +959,30 @@ footer{padding:3.5rem 0}
 @media(max-width:520px){
 
   .proj-grid{grid-template-columns:minmax(0,1fr)}
-  .journey-hero{padding-bottom:4rem}
 
-  .journey-hero h1{font-size:clamp(2.1rem,10vw,3rem)}
+  /* Journey hero (phone): exactly one screen tall, so the story section below stays out of view until "Get Started" */
+
+  .journey-hero{min-height:100svh;display:flex;padding-top:4.5rem;padding-bottom:1rem}
+
+  .journey-hero-grid{flex:1;width:100%;grid-template-rows:auto minmax(0,1fr);gap:1rem}
+
+  .journey-hero-copy .back{margin-bottom:.75rem}
+
+  .journey-hero-copy .eyebrow{margin-bottom:.4rem}
+
+  .journey-hero h1{font-size:clamp(1.5rem,7vw,1.9rem);line-height:1.1;max-width:none}
+
+  .journey-hero .lead{margin:.6rem 0 1rem;font-size:.9rem;line-height:1.5}
+
+  .journey-primary{padding:.65rem 1.1rem;font-size:.9rem}
+
+  /* Left edge lines up with "MY", right edge with the end of the title. Height = whatever space is left. */
+  .journey-portrait{position:relative;width:100%;min-height:11rem;justify-self:stretch;align-self:stretch}
+
+  /* Absolute, so the photo's own size can't push the hero taller than the screen. Crop is anchored to the bottom, so the shoes always show. */
+  .journey-portrait img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center bottom}
+
+  .journey-portrait figcaption{display:none}
 
   .journey-timeline{padding-top:4rem}
 

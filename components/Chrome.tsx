@@ -52,10 +52,12 @@ export default function Chrome({ variant = "default" }: { variant?: "default" | 
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
   const [open, setOpen] = useState(false);
+  const [menu, setMenu] = useState(false); // mobile hamburger menu (journey variant only)
   const [q, setQ] = useState("");
   const [sel, setSel] = useState(0);
   const input = useRef<HTMLInputElement>(null);
   const dialog = useRef<HTMLDivElement>(null);
+  const nav = useRef<HTMLElement>(null);
   const dark = useSyncExternalStore(subscribeTheme, getDark, getServerDark);
   const mac = useSyncExternalStore(subscribeNone, getMac, getServerMac);
 
@@ -68,6 +70,7 @@ export default function Chrome({ variant = "default" }: { variant?: "default" | 
     try { localStorage.setItem("theme", next); } catch {}
   }, []);
   const openPalette = () => { setQ(""); setSel(0); setOpen(true); };
+  const closeMenu = () => setMenu(false);
 
   // On the home page, scroll smoothly to the top instead of navigating
   const goHome = (e: React.MouseEvent) => {
@@ -114,7 +117,7 @@ export default function Chrome({ variant = "default" }: { variant?: "default" | 
         setQ(""); setSel(0);
         setOpen((o) => !o);
       }
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") { setOpen(false); setMenu(false); }
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -134,6 +137,16 @@ export default function Chrome({ variant = "default" }: { variant?: "default" | 
       prev?.focus?.({ preventScroll: true });
     };
   }, [open]);
+
+  // Close the mobile menu when tapping outside the nav
+  useEffect(() => {
+    if (!menu) return;
+    const onDown = (e: PointerEvent) => {
+      if (nav.current && !nav.current.contains(e.target as Node)) setMenu(false);
+    };
+    document.addEventListener("pointerdown", onDown);
+    return () => document.removeEventListener("pointerdown", onDown);
+  }, [menu]);
 
   const commands: Command[] = [
     { name: "Home", group: "Navigate", icon: "home", run: goHomeCommand },
@@ -168,7 +181,7 @@ export default function Chrome({ variant = "default" }: { variant?: "default" | 
 
   return (
     <>
-      <nav className={"nav" + (pill ? " pill" : "") + (isJourney ? " journey-nav" : "")} aria-label="Main">
+      <nav ref={nav} className={"nav" + (pill ? " pill" : "") + (isJourney ? " journey-nav" : "")} aria-label="Main">
         {isJourney ? (
           <Link href="/" className="journey-brand">Jj Mcdal Nabong</Link>
         ) : null}
@@ -183,34 +196,37 @@ export default function Chrome({ variant = "default" }: { variant?: "default" | 
             Mcdal
           </Link>
         ) : null}
-        <div className={"nav-links" + (isJourney ? " journey-nav-links" : "")}>
-          {isJourney ? (
-            <>
-              <a href="#story">Story</a>
-              <a href="#podcast">Podcast</a>
-              <a href="#lessons">Lessons</a>
-            </>
-          ) : null}
-          {!isJourney ? SECTIONS.map((s) => {
-            const label = s[0].toUpperCase() + s.slice(1);
-            return (
-              <Link
-                key={s}
-                href={"/#" + s}
-                data-label={label} // read by the CSS ::after that reserves the bold width
-                className={active === s ? "active" : ""}
-                aria-current={active === s ? "location" : undefined}
-              >
-                {label}
-              </Link>
-            );
-          }) : null}
-        </div>
         {isJourney ? (
-          <a className="journey-facebook" href={FACEBOOK} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <FacebookIcon />
-          </a>
-        ) : null}
+          // Desktop: wrapper is invisible (display: contents). Mobile: it becomes the hamburger dropdown.
+          <div id="journey-menu" className={"journey-menu" + (menu ? " open" : "")}>
+            <div className="nav-links journey-nav-links">
+              <a href="#story" onClick={closeMenu}>Story</a>
+              <a href="#podcast" onClick={closeMenu}>Podcast</a>
+              <a href="#lessons" onClick={closeMenu}>Lessons</a>
+            </div>
+            <a className="journey-facebook" href={FACEBOOK} target="_blank" rel="noopener noreferrer" aria-label="Facebook" onClick={closeMenu}>
+              <FacebookIcon />
+              <span className="journey-facebook-label">Facebook</span>
+            </a>
+          </div>
+        ) : (
+          <div className="nav-links">
+            {SECTIONS.map((s) => {
+              const label = s[0].toUpperCase() + s.slice(1);
+              return (
+                <Link
+                  key={s}
+                  href={"/#" + s}
+                  data-label={label} // read by the CSS ::after that reserves the bold width
+                  className={active === s ? "active" : ""}
+                  aria-current={active === s ? "location" : undefined}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+          </div>
+        )}
         {!isJourney ? <>
         <button className={"search-btn" + (pill ? " scrolled" : "")} onClick={openPalette} aria-label="Open command palette">
           <span className="search-icon"><SearchIcon /></span>
@@ -222,6 +238,20 @@ export default function Chrome({ variant = "default" }: { variant?: "default" | 
           <span className="track"><span className="thumb" /></span>
           <span className="switch-label">{dark ? "Light" : "Dark"}</span>
         </button>
+        {isJourney ? (
+          <button
+            type="button"
+            className="menu-btn"
+            onClick={() => setMenu((m) => !m)}
+            aria-label={menu ? "Close menu" : "Open menu"}
+            aria-expanded={menu}
+            aria-controls="journey-menu"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              {menu ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
+          </button>
+        ) : null}
       </nav>
 
       {open && (
