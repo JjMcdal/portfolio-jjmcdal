@@ -63,6 +63,23 @@ function ArrowIcon() {
   );
 }
 
+function ClockIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </svg>
+  );
+}
+
 export default function Projects() {
   const [tag, setTag] = useState("All");
   const list = PROJECTS.filter((project) => tag === "All" || project.tags.includes(tag));
@@ -115,6 +132,11 @@ export default function Projects() {
                     sizes="(max-width: 520px) calc(100vw - 4rem), (max-width: 860px) 50vw, 33vw"
                     className={project.imageFit === "contain" ? "contain" : undefined}
                   />
+                </div>
+              ) : project.soon ? (
+                <div className="thumb-box soon-box" role="img" aria-label={`${project.title} is still in progress`}>
+                  <ClockIcon />
+                  <span className="soon-pill">In progress</span>
                 </div>
               ) : (
                 <div className="thumb-box" aria-label={`${project.title} preview is not available yet`}>

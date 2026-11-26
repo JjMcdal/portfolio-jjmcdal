@@ -426,6 +426,31 @@ section{padding:0}
   text-align: center;
 }
 
+/* Placeholder for unfinished projects: icon + pill, no screenshot */
+.card > .thumb-box.soon-box {
+  flex-direction: column;
+  gap: 1rem;
+  background-image: none;
+}
+
+.soon-box svg {
+  width: 44px;
+  height: 44px;
+  color: var(--muted);
+}
+
+.soon-pill {
+  padding: .45rem 1.1rem;
+  border-radius: 999px;
+  background: var(--solid);
+  color: var(--on-solid);
+  font-family: var(--sans);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
 .card-body {
   display: flex;
   min-width: 0;

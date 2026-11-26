@@ -157,8 +157,8 @@ export const PROJECTS: Project[] = [
     visit: "https://pandayo-coffee.vercel.app/",
     soon: true, // remove this line when the system is finished, and the View button comes back
     labels: ["POS", "Inventory"],
-    image: "/projects/pandayo-coffee-pic.png",
-    imageFit: "cover",
+    // image: "/projects/pandayo-coffee-pic.png", // restore these two lines when the system is finished
+    // imageFit: "cover",
     note: "Still being built. Progress is pushed to GitHub regularly.",
   },
 ];
