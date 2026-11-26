@@ -91,15 +91,18 @@ export default function Projects() {
             .slice(0, 3);
 
           // Prefer the deployed site; otherwise link to the first available resource.
+          // Unfinished projects (soon) never get a link, only the disabled button below.
           const firstLink = project.links[0];
-          const action = project.visit
-            ? { label: "View", href: project.visit }
-            : firstLink
-              ? {
-                  label: firstLink.label === "GitHub repo" ? "GitHub" : firstLink.label,
-                  href: firstLink.href,
-                }
-              : null;
+          const action = project.soon
+            ? null
+            : project.visit
+              ? { label: "View", href: project.visit }
+              : firstLink
+                ? {
+                    label: firstLink.label === "GitHub repo" ? "GitHub" : firstLink.label,
+                    href: firstLink.href,
+                  }
+                : null;
 
           return (
             <article className="card" key={project.id}>
@@ -159,9 +162,13 @@ export default function Projects() {
                     <span
                       className="btn soon"
                       aria-disabled="true"
-                      title="This is an internal government system and has no public demo."
+                      title={
+                        project.soon
+                          ? "Still being built. Check back soon."
+                          : "This is an internal government system and has no public demo."
+                      }
                     >
-                      Internal system
+                      {project.soon ? "Coming soon" : "Internal system"}
                     </span>
                   )}
                 </div>

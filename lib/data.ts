@@ -84,6 +84,7 @@ export type Project = {
   role: string; tech: string[]; tags: string[]; highlights: string[];
   links: { label: string; href: string }[]; note?: string;
   visit?: string; // live URL for the card button; otherwise use the first link or the internal-system label
+  soon?: boolean; // unfinished project: show a disabled "Coming soon" button instead of the live link
   labels?: string[]; // two short category pills shown on the card
   image?: string; // path under /public, e.g. "/projects/rcv-pic.png"
   imageFit?: "cover" | "contain"; // use "contain" for logos
@@ -154,7 +155,8 @@ export const PROJECTS: Project[] = [
     ],
     links: [{ label: "Live site", href: "https://pandayo-coffee.vercel.app/" }],
     visit: "https://pandayo-coffee.vercel.app/",
-    labels: ["POS", "In Progress"],
+    soon: true, // remove this line when the system is finished, and the View button comes back
+    labels: ["POS", "Inventory"],
     image: "/projects/pandayo-coffee-pic.png",
     imageFit: "cover",
     note: "Still being built. Progress is pushed to GitHub regularly.",
